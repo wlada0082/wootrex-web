@@ -7,6 +7,7 @@ BASE.add_argument('--base-url',default='https://wootrex.cz/')
 base=BASE.parse_args().base_url.rstrip('/')+'/'
 # Each row is Czech | English | German | Slovak | Polish.
 rows = """
+Android může požádat o povolení instalace aplikací z tohoto zdroje, protože beta je distribuována mimo Google Play.|Android may ask for permission to install apps from this source because the beta is distributed outside Google Play.|Android kann um die Erlaubnis bitten, Apps aus dieser Quelle zu installieren, da die Beta außerhalb von Google Play verteilt wird.|Android môže požiadať o povolenie inštalácie aplikácií z tohto zdroja, pretože beta je distribuovaná mimo Google Play.|Android może poprosić o zgodę na instalowanie aplikacji z tego źródła, ponieważ wersja beta jest udostępniana poza Google Play.
 Menu|Menu|Menü|Menu|Menu
 Přejít na obsah|Skip to content|Zum Inhalt springen|Prejsť na obsah|Przejdź do treści
 WOOTREX — úvod|WOOTREX — home|WOOTREX — Startseite|WOOTREX — úvod|WOOTREX — strona główna
