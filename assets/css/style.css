@@ -66,3 +66,15 @@ h2{font-size:38px}
 .product-phone figcaption{margin-top:18px;font-size:14px}
 }
 @media(min-width:1440px){.hero{margin-top:0}}
+
+/* Compact language links, using the established navigation styling. */
+.locale-selector{display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:10px;letter-spacing:.4px}
+.locale-selector>span{color:#52645a}
+.locale-selector a{color:var(--muted)}
+.locale-selector a:hover,.locale-selector a[aria-current="page"]{color:var(--green)}
+.header nav{gap:20px}
+.privacy-header{gap:20px}
+@media(max-width:1024px){.locale-selector{font-size:12px;gap:8px}.privacy-header{height:auto;min-height:82px;flex-wrap:wrap;padding-block:15px}.privacy-header .locale-selector{flex-basis:100%}}
+/* Navigation remains available without JavaScript on compact screens. */
+@media(max-width:1024px){html:not(.js-enabled) .header:has(#navigation){height:auto;flex-wrap:wrap;padding-block:18px}html:not(.js-enabled) #navigation{display:flex;position:static;flex-basis:100%;margin-top:16px}html:not(.js-enabled) .menu-toggle{display:none}}
+.privacy h1{overflow-wrap:anywhere}

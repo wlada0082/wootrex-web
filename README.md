@@ -1,50 +1,65 @@
-# WOOTREX website
+# WOOTREX public website
 
-Official Czech landing page, with Czech and English privacy policy. Plain static HTML, CSS and JavaScript; no build step, backend, external dependencies, analytics, cookies or trackers.
+Plain static HTML, CSS and JavaScript. No backend, runtime framework, analytics, advertising scripts or tracking cookies.
 
-## Files
+## Public URLs
 
-- index.html — landing page
-- privacy.html — Czech / English privacy policy, updated 7 October 2026
-- assets/css/style.css — responsive design and reduced-motion support
-- assets/js/main.js — accessible mobile menu and reveal animations
-- assets/images/wootrex-symbol.png — public WX brand asset
-- assets/images/favicon.png — public app icon used as favicon
-- README.md — setup, deployment and asset provenance
+Final canonical origin: https://wootrex.cz/
+
+Landing pages: /cs/, /en/, /de/, /sk/, /pl/.
+Privacy pages: /cs/privacy.html, /en/privacy.html, /de/privacy.html, /sk/privacy.html, /pl/privacy.html.
+
+The root index.html contains complete Czech content. JavaScript chooses a supported browser language only at this entry point. Manual selection is remembered in localStorage as wootrex.language; this stores only a language code. Explicit localized URLs never redirect. Language links and compact navigation remain available without JavaScript.
+
+The legacy privacy.html remains bilingual Czech/English, with a canonical link to /cs/privacy.html. Privacy claims and the 7 October 2026 date are preserved.
 
 ## Local preview
 
 From this directory run:
 
-    python -m http.server 8080 --bind 127.0.0.1
+    python -m http.server 8080
 
-Open http://127.0.0.1:8080/. Both HTML files also work when opened directly.
+Open the local address printed by Python, then navigate to a language directory. E-mail CTAs require an e-mail client; no message is sent by this website.
 
-## Hosting
+## Editing and generation
 
-Publish this directory to any static host. Keep the assets directory beside both HTML pages. No routing rewrites are needed. Connect the registered WOOTREX domain in the host's settings and enable HTTPS.
+- tools/templates/index.html — landing page source
+- tools/templates/privacy.html — approved Czech/English privacy source
+- tools/build_locales.py — translations and static page generation
+- assets/css/style.css — shared presentation
+- assets/js/main.js — navigation and reveal animations
+- assets/js/language.js — language preference handling
 
-Before public launch, set og:image to an absolute HTTPS URL for the deployed brand image on both pages. Add og:url and a canonical URL once the final domain is known; no domain was guessed. Review the privacy policy against the released application's behavior and the selected hosting provider's handling of access logs. Update this page before introducing new online data processing.
+Regenerate all pages:
 
-## Branding provenance
+    python tools/build_locales.py
 
-Only these public branding assets were copied from the Flutter project:
+The generator defaults to https://wootrex.cz/. To deliberately change the hosting origin, pass --base-url followed by the complete HTTPS origin and any project subpath. Canonical, hreflang and Open Graph metadata are regenerated together. Do not edit generated localized pages independently.
 
-| Website file | Original source |
+## GitHub Pages
+
+The repository root is ready for branch-based static publishing. In GitHub Settings > Pages, choose Deploy from a branch, main, and / (root), then Save. The .nojekyll file disables Jekyll processing. Relative assets and language links also work under a GitHub Pages repository subpath. No routing rewrites or build process are needed.
+
+Custom-domain configuration, DNS and HTTPS activation are separate manual deployment steps. No CNAME or Pages setting has been configured by this preparation. Canonical URLs target the intended domain; they do not prove that it is live.
+
+## Asset provenance
+
+Only public branding assets were copied from the separate gym_log Flutter repository:
+
+| Website asset | Original repository-relative source |
 | --- | --- |
-| assets/images/wootrex-symbol.png | C:\Projekty\gym_log\assets\branding\wootrex_symbol.png |
-| assets/images/favicon.png | C:\Projekty\gym_log\assets\branding\wootrex_app_icon.png |
+| assets/images/wootrex-symbol.png | gym_log: assets/branding/wootrex_symbol.png |
+| assets/images/favicon.png | gym_log: assets/branding/wootrex_app_icon.png |
+| assets/images/wootrex-splash-logo.png | gym_log: assets/images/wootrex_splash_logo_transparent.png |
 
-The progress artwork is an HTML/CSS/SVG illustration, explicitly labeled as neither an application screen nor real data. It can later be replaced by approved public screenshots.
+The sharp splash logo is used in current headers, hero, favicon and Open Graph metadata. Older branding files remain unused.
 
-All beta links open mailto:wootrex@seznam.cz?subject=WOOTREX%20Beta. There are no APK downloads.
+The supplied screenshots training.png.jpg, statistics.png.jpg and physique.png.jpg remain unchanged, including their Czech app UI. Surrounding captions and alt text are localized. No Outdoor screenshot was provided.
 
-## Verification checklist
+The progress illustration is not an app screenshot or actual data. No private Flutter files, databases, signing files or APKs belong in this repository.
 
-Check desktop and mobile layouts, navigation toggle and Escape handling, keyboard focus, all section links, both privacy language anchors, and reduced-motion behavior. E-mail links require an e-mail client. Without JavaScript all content remains visible; the main sections can still be reached by scrolling.
+## Release review items
 
-No commit or push is part of this implementation.
+Native-language review is recommended for DE/SK/PL privacy wording and fitness terminology. The feedback-email retention/deletion practice remains unconfirmed and should be resolved before store submission. Localization did not add privacy claims.
 
-## Splash logo update
-
-The header, hero, privacy header, Open Graph image and favicon now use assets/images/wootrex-splash-logo.png, copied unchanged from C:\Projekty\gym_log\assets\images\wootrex_splash_logo_transparent.png (1254 x 1254, transparent). This is the exact asset referenced by WootrexIntro.logoAsset in lib/widgets/wootrex_intro.dart. The older intro logo is 1024 x 1024; the current startup asset provides higher resolution and matches the app. Header display sizes are 48px desktop / 40px mobile; hero sizes are 300px desktop / 220px mobile, with sufficient source pixels for retina displays. The original website logo and favicon files remain available but are no longer referenced.
+The audit checks static links, asset availability, language selection, responsive layouts, metadata and repository contents. It does not certify a live custom domain, DNS or store approval.

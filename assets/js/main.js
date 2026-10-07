@@ -1,14 +1,15 @@
+document.documentElement.classList.add('js-enabled');
 const toggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 function closeMenu() {
   navigation?.classList.remove('open');
   toggle?.setAttribute('aria-expanded', 'false');
-  toggle?.setAttribute('aria-label', 'Otevřít navigaci');
+  toggle?.setAttribute('aria-label', toggle.dataset.openLabel || 'Otevřít navigaci');
 }
 toggle?.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') !== 'true';
   toggle.setAttribute('aria-expanded', String(open));
-  toggle.setAttribute('aria-label', open ? 'Zavřít navigaci' : 'Otevřít navigaci');
+  toggle.setAttribute('aria-label', open ? toggle.dataset.closeLabel : toggle.dataset.openLabel);
   navigation.classList.toggle('open', open);
 });
 navigation?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
