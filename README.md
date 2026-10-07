@@ -19,7 +19,7 @@ From this directory run:
 
     python -m http.server 8080
 
-Open the local address printed by Python, then navigate to a language directory. E-mail CTAs require an e-mail client; no message is sent by this website.
+Open the local address printed by Python, then navigate to a language directory. Feedback is submitted within the page after the backend becomes available. Beta CTAs download the Android APK.
 
 ## Editing and generation
 
@@ -69,3 +69,7 @@ The audit checks static links, asset availability, language selection, responsiv
 The generator installs the supplied public Cloudflare Web Analytics beacon once before the closing body tag on all 12 public HTML pages. Source templates are not instrumented. The site token is public and is not a Cloudflare account API token. Privacy policies disclose aggregate website traffic and page usage analytics, with no advertising use, Google Analytics or sale of visitor data.
 
 The snippet uses an absolute HTTPS script URL and is identical on the apex and www hostnames. Cloudflare hostname/rule settings and successful production reporting must be verified in the dashboard; repository changes do not configure these.
+
+## Direct feedback
+
+assets/js/feedback.js provides a localized internal dialog, POSTing JSON to https://feedback.wootrex.cz/feedback in production and local previews. No credentials or email client are used. The feedback API is deployed with a verified HTTPS Custom Domain and D1 storage. Backend sources are separate in wootrex-feedback-api. Privacy drafts describe the upcoming API/D1 flow and existing Beta 1 email behavior; confirm retention/deletion before release.
