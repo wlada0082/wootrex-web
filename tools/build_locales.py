@@ -127,7 +127,7 @@ policy['de']="""
 <h3>Vom Nutzer veranlasstes Teilen</h3><p>Wenn du ein Veränderungsfoto exportierst oder teilst, wird der ausgewählte Inhalt an die von dir gewählte App oder den Empfänger übergeben. Die weitere Verarbeitung unterliegt deren Regeln.</p>
 <h3>Tracking und Datenweitergabe</h3><p>WOOTREX verwendet kein Werbetracking und verkauft keine personenbezogenen Daten. Derzeit erfasst kein WOOTREX-Analysebackend Trainings-, Körper- oder Standortdaten.</p>
 <h3>Feedback per E-Mail</h3><p>Wenn du Feedback an <a href="mailto:wootrex@seznam.cz">wootrex@seznam.cz</a> sendest, werden deine E-Mail-Adresse, der Nachrichteninhalt und von dir beigefügte Dateien über deinen E-Mail-Anbieter und den des Empfängers verarbeitet, um die Nachricht zu bearbeiten. Das Feedbackformular in der App kann App-Version, Build-Nummer, Betriebssystem und dessen Version sowie Gerätemodell zum E-Mail-Entwurf hinzufügen; die Aufnahme dieser Diagnosedaten kann deaktiviert werden. Du schließt den Versand in deinem E-Mail-Programm ab. Teile nur Informationen, die du senden möchtest.</p>
-<h3>Diese Website</h3><p>Die aktuelle WOOTREX-Website verwendet keine Analysetools, Werbetracker oder Tracking-Cookies. E-Mail-Links öffnen dein E-Mail-Programm.</p>
+<h3>Diese Website</h3><p>Die WOOTREX-Website verwendet Cloudflare Web Analytics, um den Website-Traffic und die Nutzung der Seiten in aggregierter Form zu verstehen. Diese Analyse wird nicht für Werbung verwendet und verwendet keine Tracking-Cookies. WOOTREX verwendet weder Google Analytics noch Werbetracker und verkauft keine Besucherdaten. E-Mail-Links öffnen dein E-Mail-Programm.</p>
 <h3>Künftige Änderungen</h3><p>Diese Erklärung kann sich ändern, wenn Konten, Cloud-Synchronisierung, Analysen oder andere Online-Dienste eingeführt werden. Die aktualisierte Fassung wird auf dieser Seite mit einem neuen Aktualisierungsdatum veröffentlicht.</p>
 """
 policy['sk']="""
@@ -139,7 +139,7 @@ policy['sk']="""
 <h3>Zdieľanie zvolené používateľom</h3><p>Ak použijete export alebo zdieľanie fotografie premeny, zvolený obsah sa odovzdá vami vybranej aplikácii či príjemcovi a ďalšie spracúvanie sa riadi ich pravidlami.</p>
 <h3>Sledovanie a odovzdávanie údajov</h3><p>WOOTREX nepoužíva reklamné sledovanie a nepredáva osobné údaje. V súčasnosti žiadny analytický backend WOOTREX nezhromažďuje údaje o tréningoch, tele alebo polohe.</p>
 <h3>Spätná väzba e-mailom</h3><p>Ak odošlete spätnú väzbu na <a href="mailto:wootrex@seznam.cz">wootrex@seznam.cz</a>, vaša e-mailová adresa, obsah správy a vami priložené súbory budú spracované prostredníctvom vášho a príjemcovho poskytovateľa e-mailu na vybavenie správy. Formulár spätnej väzby v aplikácii môže do návrhu e-mailu pridať verziu aplikácie, číslo zostavenia, operačný systém a jeho verziu a model zariadenia; zahrnutie týchto diagnostických údajov možno vypnúť. Odoslanie dokončíte vo svojom e-mailovom klientovi. Zdieľajte iba informácie, ktoré chcete zaslať.</p>
-<h3>Tento web</h3><p>Súčasný web WOOTREX nepoužíva analytické nástroje, reklamné sledovacie prvky ani sledovacie cookies. Odkazy na e-mail otvoria vášho e-mailového klienta.</p>
+<h3>Tento web</h3><p>Web WOOTREX používa Cloudflare Web Analytics na porozumenie súhrnnej návštevnosti webu a využívania stránok. Táto analytika sa nepoužíva na reklamu a nepoužíva sledovacie cookies. WOOTREX nepoužíva Google Analytics ani reklamné sledovacie prvky a nepredáva údaje návštevníkov. Odkazy na e-mail otvoria váš e-mailový klient.</p>
 <h3>Budúce zmeny</h3><p>Tieto zásady sa môžu zmeniť pri zavedení účtov, cloudovej synchronizácie, analytiky alebo ďalších online služieb. Aktualizovaná verzia bude zverejnená na tejto stránke s novým dátumom aktualizácie.</p>
 """
 policy['pl']="""
@@ -151,7 +151,7 @@ policy['pl']="""
 <h3>Udostępnianie z inicjatywy użytkownika</h3><p>Jeśli wyeksportujesz lub udostępnisz zdjęcie przemiany, wybrana treść zostanie przekazana do wskazanej aplikacji lub odbiorcy, a dalsze przetwarzanie podlega ich zasadom.</p>
 <h3>Śledzenie i przekazywanie danych</h3><p>WOOTREX nie stosuje śledzenia reklamowego i nie sprzedaje danych osobowych. Obecnie żaden backend analityczny WOOTREX nie gromadzi danych treningowych, danych dotyczących ciała ani lokalizacji.</p>
 <h3>Opinie przesyłane e-mailem</h3><p>Jeśli wyślesz opinię na <a href="mailto:wootrex@seznam.cz">wootrex@seznam.cz</a>, twój adres e-mail, treść wiadomości i dołączone pliki będą przetwarzane przez twojego dostawcę poczty oraz dostawcę odbiorcy w celu obsługi wiadomości. Formularz opinii w aplikacji może dodać do szkicu e-maila wersję aplikacji, numer kompilacji, system operacyjny i jego wersję oraz model urządzenia; dołączanie tych danych diagnostycznych można wyłączyć. Wysyłkę kończysz w swoim programie pocztowym. Udostępniaj tylko informacje, które chcesz wysłać.</p>
-<h3>Ta strona internetowa</h3><p>Obecna strona WOOTREX nie używa narzędzi analitycznych, trackerów reklamowych ani śledzących plików cookie. Linki e-mail otwierają twój program pocztowy.</p>
+<h3>Ta strona internetowa</h3><p>Strona WOOTREX używa Cloudflare Web Analytics, aby zrozumieć zagregowany ruch na stronie i korzystanie z jej stron. Ta analityka nie jest używana do reklamy i nie używa śledzących plików cookie. WOOTREX nie używa Google Analytics ani trackerów reklamowych i nie sprzedaje danych odwiedzających. Linki e-mail otwierają twój program pocztowy.</p>
 <h3>Przyszłe zmiany</h3><p>Ta polityka może się zmienić wraz z wprowadzeniem kont, synchronizacji w chmurze, analityki lub innych usług online. Zaktualizowana wersja zostanie opublikowana na tej stronie z nową datą aktualizacji.</p>
 """
 locale={'cs':'cs_CZ','en':'en_GB','de':'de_DE','sk':'sk_SK','pl':'pl_PL'}
@@ -212,3 +212,11 @@ legacy=legacy.replace('</head>','<script src="assets/js/language.js" defer></scr
 legacy=legacy.replace('</header>',selector('cs','',True)+'</header>',1).replace('class="header"','class="header privacy-header"',1)
 (ROOT/'privacy.html').write_text(legacy.rstrip()+'\n',encoding='utf-8')
 print('Generated 10 localized pages and two root compatibility pages.')
+
+# Install the supplied public beacon exactly once in each published page.
+BEACON = '<!-- Cloudflare Web Analytics --><script type=\'module\' src=\'https://static.cloudflareinsights.com/beacon.min.js\' data-cf-beacon=\'{"token": "a9252c3488074632afb1ec502d532257"}\'></script><!-- End Cloudflare Web Analytics -->'
+for page in [ROOT/'index.html', ROOT/'privacy.html'] + [ROOT/l/name for l in LANGS for name in ['index.html','privacy.html']]:
+ content=page.read_text(encoding='utf-8')
+ assert 'static.cloudflareinsights.com' not in content, page
+ assert content.count('</body>')==1, page
+ page.write_text(content.replace('</body>', BEACON+'\n</body>'),encoding='utf-8')

@@ -1,6 +1,6 @@
 # WOOTREX public website
 
-Plain static HTML, CSS and JavaScript. No backend, runtime framework, analytics, advertising scripts or tracking cookies.
+Plain static HTML, CSS and JavaScript. No backend or runtime framework. Cloudflare Web Analytics is the only analytics provider; no advertising scripts or tracking cookies.
 
 ## Public URLs
 
@@ -63,3 +63,9 @@ The progress illustration is not an app screenshot or actual data. No private Fl
 Native-language review is recommended for DE/SK/PL privacy wording and fitness terminology. The feedback-email retention/deletion practice remains unconfirmed and should be resolved before store submission. Localization did not add privacy claims.
 
 The audit checks static links, asset availability, language selection, responsive layouts, metadata and repository contents. It does not certify a live custom domain, DNS or store approval.
+
+## Website analytics
+
+The generator installs the supplied public Cloudflare Web Analytics beacon once before the closing body tag on all 12 public HTML pages. Source templates are not instrumented. The site token is public and is not a Cloudflare account API token. Privacy policies disclose aggregate website traffic and page usage analytics, with no advertising use, Google Analytics or sale of visitor data.
+
+The snippet uses an absolute HTTPS script URL and is identical on the apex and www hostnames. Cloudflare hostname/rule settings and successful production reporting must be verified in the dashboard; repository changes do not configure these.
