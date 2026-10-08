@@ -11,7 +11,7 @@ Privacy pages: /cs/privacy.html, /en/privacy.html, /de/privacy.html, /sk/privacy
 
 The root index.html contains complete Czech content. JavaScript chooses a supported browser language only at this entry point. Manual selection is remembered in localStorage as wootrex.language; this stores only a language code. Explicit localized URLs never redirect. Language links and compact navigation remain available without JavaScript.
 
-The legacy privacy.html remains bilingual Czech/English, with a canonical link to /cs/privacy.html. Privacy claims and the 7 October 2026 date are preserved.
+The legacy privacy.html remains bilingual Czech/English, with a canonical link to /cs/privacy.html. Privacy claims and the 8 October 2026 date are preserved.
 
 ## Local preview
 
@@ -73,3 +73,11 @@ The snippet uses an absolute HTTPS script URL and is identical on the apex and w
 ## Direct feedback
 
 assets/js/feedback.js provides a localized internal dialog, POSTing JSON to https://feedback.wootrex.cz/feedback in production and local previews. No credentials or email client are used. The feedback API is deployed with a verified HTTPS Custom Domain and D1 storage. Backend sources are separate in wootrex-feedback-api. Privacy drafts describe the upcoming API/D1 flow and existing Beta 1 email behavior; confirm retention/deletion before release.
+
+## Beta CTA click measurement
+
+assets/js/beta-cta.js routes the beta CTAs by device and additionally measures clicks anonymously. Buttons tagged with data-cta (hero, nav, platform_section) fire a non-blocking sendBeacon/fetch keepalive POST with a text/plain body to https://click.wootrex.cz/e/beta-click, a Cloudflare Worker endpoint hosted in wootrex-admin-online. The beacon never calls preventDefault, so the APK download and TestFlight page open immediately even if tracking fails.
+
+Only four whitelisted fields leave the browser: platform_target (android|ios, derived from the exact destination URL), language (cs|en|de|sk|pl), source_cta and device_type (derived from the user agent). No cookies, no IP storage, no user agent transmission, no identifiers and no fingerprinting. A click means interest, not a confirmed install; the GitHub release download_count stays the separate install proxy. The privacy page documents this processing.
+
+Tests (Node.js, no dependencies): node --test tools/test
