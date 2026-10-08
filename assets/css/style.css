@@ -80,3 +80,5 @@ h2{font-size:38px}
 .privacy h1{overflow-wrap:anywhere}
 
 .feedback-dialog{color:#f2f6f4;background:#101714;border:1px solid #315443;border-radius:18px;width:min(560px,calc(100% - 32px));max-height:90vh;padding:28px}.feedback-dialog::backdrop{background:#000b}.feedback-dialog form{display:grid;gap:12px}.feedback-heading{display:flex;align-items:center;justify-content:space-between;gap:16px}.feedback-heading h2{font-size:26px;margin:0}.feedback-dialog input,.feedback-dialog select,.feedback-dialog textarea{font:inherit;color:inherit;background:#080e0b;border:1px solid #385244;border-radius:8px;padding:12px;width:100%}.feedback-dialog textarea{resize:vertical}.feedback-close{color:#22ec9c;background:none;border:0;cursor:pointer}.feedback-notice,.feedback-status{font-size:14px;line-height:1.5}.feedback-dialog button:disabled{opacity:.6;cursor:wait}
+
+.ios-install{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}.ios-install .actions{flex-wrap:wrap}.ios-install .button{white-space:normal}

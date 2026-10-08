@@ -7,6 +7,12 @@ BASE.add_argument('--base-url',default='https://wootrex.cz/')
 base=BASE.parse_args().base_url.rstrip('/')+'/'
 # Each row is Czech | English | German | Slovak | Polish.
 rows = """
+iOS beta přes TestFlight|iOS beta via TestFlight|iOS-Beta über TestFlight|iOS beta cez TestFlight|iOS beta przez TestFlight
+Nainstaluj TestFlight z App Storu.|Install TestFlight from the App Store.|Installiere TestFlight aus dem App Store.|Nainštaluj TestFlight z App Storu.|Zainstaluj TestFlight z App Store.
+Vrať se sem a klepni na „Otevřít WOOTREX v TestFlightu“.|Return here and tap “Open WOOTREX in TestFlight”.|Kehre hierher zurück und tippe auf „WOOTREX in TestFlight öffnen“.|Vráť sa sem a klepni na „Otvoriť WOOTREX v TestFlighte“.|Wróć tutaj i stuknij „Otwórz WOOTREX w TestFlight”.
+Nainstalovat TestFlight|Install TestFlight|TestFlight installieren|Nainštalovať TestFlight|Zainstaluj TestFlight
+Otevřít WOOTREX v TestFlightu|Open WOOTREX in TestFlight|WOOTREX in TestFlight öffnen|Otvoriť WOOTREX v TestFlighte|Otwórz WOOTREX w TestFlight
+Pokud TestFlight po instalaci zobrazí výzvu ke zvacímu kódu, žádný kód nepotřebuješ. Vrať se na tuto stránku a znovu klepni na tlačítko WOOTREX.|If TestFlight asks for an invitation code after installation, you do not need one. Return to this page and tap the WOOTREX button again.|Falls TestFlight nach der Installation nach einem Einladungscode fragt, brauchst du keinen Code. Kehre zu dieser Seite zurück und tippe erneut auf die WOOTREX-Schaltfläche.|Ak TestFlight po inštalácii zobrazí výzvu na pozývací kód, žiadny kód nepotrebuješ. Vráť sa na túto stránku a znova klepni na tlačidlo WOOTREX.|Jeśli po instalacji TestFlight poprosi o kod zaproszenia, nie potrzebujesz żadnego kodu. Wróć na tę stronę i ponownie stuknij przycisk WOOTREX.
 Zpětná vazba|Feedback|Feedback|Spätná väzba|Opinia
 Android může požádat o povolení instalace aplikací z tohoto zdroje, protože beta je distribuována mimo Google Play.|Android may ask for permission to install apps from this source because the beta is distributed outside Google Play.|Android kann um die Erlaubnis bitten, Apps aus dieser Quelle zu installieren, da die Beta außerhalb von Google Play verteilt wird.|Android môže požiadať o povolenie inštalácie aplikácií z tohto zdroja, pretože beta je distribuovaná mimo Google Play.|Android może poprosić o zgodę na instalowanie aplikacji z tego źródła, ponieważ wersja beta jest udostępniana poza Google Play.
 Menu|Menu|Menü|Menu|Menu
