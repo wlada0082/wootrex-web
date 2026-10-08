@@ -27,7 +27,7 @@ WOOTREX spojuje silový trénink, kardio, outdoor aktivity a sledování postavy
 Chci testovat WOOTREX|Test WOOTREX|WOOTREX testen|Chcem testovať WOOTREX|Chcę testować WOOTREX
 Zjistit více|Learn more|Mehr erfahren|Zistiť viac|Dowiedz się więcej
 ANDROID V UZAVŘENÉM TESTOVÁNÍ|ANDROID IN CLOSED TESTING|ANDROID IM GESCHLOSSENEN TEST|ANDROID V UZAVRETOM TESTOVANÍ|ZAMKNIĘTE TESTY ANDROIDA
-iOS PŘIPRAVUJEME|iOS COMING NEXT|iOS IN VORBEREITUNG|iOS PRIPRAVUJEME|iOS W PRZYGOTOWANIU
+iOS BETA PŘES TESTFLIGHT|iOS BETA VIA TESTFLIGHT|iOS-BETA ÜBER TESTFLIGHT|iOS BETA CEZ TESTFLIGHT|iOS BETA PRZEZ TESTFLIGHT
 EST. 2026 / BUILT FOR PROGRESS|EST. 2026 / BUILT FOR PROGRESS|SEIT 2026 / FÜR FORTSCHRITT GEMACHT|OD ROKU 2026 / PRE PROGRES|OD 2026 / DLA POSTĘPÓW
 Kovové logo WX se zeleným akcentem|Metallic WX logo with a green accent|Metallisches WX-Logo mit grünem Akzent|Kovové logo WX so zeleným akcentom|Metaliczne logo WX z zielonym akcentem
 Kovové logo WX|Metallic WX logo|Metallisches WX-Logo|Kovové logo WX|Metaliczne logo WX
@@ -85,9 +85,10 @@ AKTIVITY|ACTIVITIES|AKTIVITÄTEN|AKTIVITY|AKTYWNOŚCI
 POSTAVA|PHYSIQUE|KÖRPER|POSTAVA|SYLWETKA
 Ilustrace oblastí progresu · nejde o obrazovku aplikace ani skutečná data|Illustration of progress areas · not an app screen or real data|Illustration der Fortschrittsbereiche · keine App-Ansicht oder echten Daten|Ilustrácia oblastí progresu · nejde o obrazovku aplikácie ani skutočné dáta|Ilustracja obszarów postępu · nie jest ekranem aplikacji ani rzeczywistymi danymi
 03 / BUĎ U TOHO|03 / BE PART OF IT|03 / SEI DABEI|03 / BUĎ PRI TOM|03 / DOŁĄCZ
-WOOTREX je nyní v uzavřeném testování pro Android a připravuje se iOS verze přes TestFlight.|WOOTREX is currently in closed testing for Android, with an iOS version via TestFlight in preparation.|WOOTREX befindet sich im geschlossenen Android-Test. Eine iOS-Version über TestFlight wird vorbereitet.|WOOTREX je teraz v uzavretom testovaní pre Android a pripravuje sa iOS verzia cez TestFlight.|WOOTREX jest obecnie w zamkniętych testach na Androidzie. Wersja iOS przez TestFlight jest w przygotowaniu.
+WOOTREX je nyní v beta testování pro Android i iOS přes TestFlight.|WOOTREX is now available for beta testing on Android and on iOS via TestFlight.|WOOTREX ist jetzt als Beta für Android und für iOS über TestFlight verfügbar.|WOOTREX je teraz dostupný na beta testovanie pre Android aj iOS cez TestFlight.|WOOTREX jest teraz dostępny w wersji beta na Androida i na iOS przez TestFlight.
 Uzavřené testování|Closed testing|Geschlossener Test|Uzavreté testovanie|Zamknięte testy
-TestFlight připravujeme|TestFlight in preparation|TestFlight in Vorbereitung|TestFlight pripravujeme|TestFlight w przygotowaniu
+Beta přes TestFlight|Beta via TestFlight|Beta über TestFlight|Beta cez TestFlight|Beta przez TestFlight
+Stáhnout iOS beta / TestFlight|Download iOS Beta / TestFlight|iOS-Beta laden / TestFlight|Stiahnuť iOS beta / TestFlight|Pobierz iOS beta / TestFlight
 Chci se zapojit do testování|Join the testing programme|Am Test teilnehmen|Chcem sa zapojiť do testovania|Chcę dołączyć do testów
 Napiš nám. Společně posuneme WOOTREX dál.|Write to us. Together we can move WOOTREX forward.|Schreib uns. Gemeinsam bringen wir WOOTREX weiter.|Napíš nám. Spoločne posunieme WOOTREX ďalej.|Napisz do nas. Razem rozwiniemy WOOTREX.
 THE NEXT<br>VERSION IS YOU.|THE NEXT<br>VERSION IS YOU.|DU BIST DIE<br>NÄCHSTE VERSION.|ĎALŠIA VERZIA<br>SI TY.|KOLEJNA WERSJA<br>TO TY.
