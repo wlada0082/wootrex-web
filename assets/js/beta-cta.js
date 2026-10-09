@@ -2,7 +2,7 @@
 // Anonymous beta CTA click measurement: no cookies, no IP storage, no identifiers,
 // no fingerprinting. The beacon never blocks or delays the download/TestFlight link.
 (() => {
-  const ANDROID_APK_URL = 'https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta2/Wootrex-Beta2-v1.0.0.apk';
+  const ANDROID_APK_URL = 'https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta3/Wootrex-Beta3-v1.0.0.apk';
   const IOS_TESTFLIGHT_URL = 'https://testflight.apple.com/join/ztkZN4xV';
   const TRACKING_ENDPOINT = 'https://click.wootrex.cz/e/beta-click';
   const LANGUAGES = ['cs', 'en', 'de', 'sk', 'pl'];

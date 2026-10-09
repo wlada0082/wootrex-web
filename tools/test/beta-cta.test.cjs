@@ -50,11 +50,57 @@ test('published pages keep the exact beta URLs and CTA labels', () => {
     'tools/templates/index.html'];
   for (const name of pages) {
     const content = fs.readFileSync(path.join(ROOT, name), 'utf8');
-    assert.ok(content.includes(api.ANDROID_APK_URL), name + ' keeps the exact Beta 2 APK URL');
+    assert.ok(content.includes(api.ANDROID_APK_URL), name + ' keeps the exact Beta 3 APK URL');
+    assert.ok(!content.includes('v1.0.0-beta2/'), name + ' has no Beta 2 download');
+    assert.ok(content.includes('WOOTREX Beta 3'), name + ' announces Beta 3');
+    assert.ok(content.includes('1.0.0'), name + ' identifies the app version');
     assert.ok(content.includes(api.IOS_TESTFLIGHT_URL), name + ' keeps the exact TestFlight URL');
     assert.ok(content.includes('data-cta="hero"'), name + ' labels the hero CTA');
     assert.ok(content.includes('data-cta="nav"'), name + ' labels the navigation CTA');
     assert.equal((content.match(/data-cta="platform_section"/g) || []).length, 2, name + ' labels both install links');
     assert.ok(content.includes('assets/js/beta-cta.js'), name + ' loads the beta CTA script');
+  }
+});
+const vm = require('node:vm');
+test('runtime routing and measurement remain correct in all five languages', async () => {
+  const script = fs.readFileSync(path.join(ROOT, 'assets/js/beta-cta.js'), 'utf8');
+  for (const language of api.LANGUAGES) {
+    for (const [nav, expected] of [
+      [{userAgent: IOS_UA, platform: 'iPhone'}, '#ios-beta'],
+      [{userAgent: IPAD_UA, platform: 'MacIntel', maxTouchPoints: 5}, '#ios-beta'],
+      [{userAgent: ANDROID_UA}, api.ANDROID_APK_URL],
+      [{userAgent: DESKTOP_UA}, '#beta'],
+      [{userAgent: ''}, '#beta']
+    ]) {
+      const events = [];
+      const promises = [];
+      const links = [link('#beta', 'hero'), link('#beta', 'nav'),
+        link(api.ANDROID_APK_URL, 'platform_section'), link(api.IOS_TESTFLIGHT_URL, 'platform_section')];
+      for (const entry of links) {
+        entry.setAttribute = (name, value) => { if (name === 'href') entry.href = value; };
+        const attr = entry.getAttribute;
+        entry.getAttribute = name => name === 'href' ? entry.href : attr(name);
+        entry.addEventListener = (name, callback) => { entry.click = callback; };
+      }
+      const navigator = {...nav, sendBeacon(url, body) {
+        assert.equal(url, api.TRACKING_ENDPOINT);
+        promises.push(body.text().then(text => events.push(JSON.parse(text))));
+        return true;
+      }};
+      const document = {documentElement: {lang: language},
+        querySelector: () => links[2],
+        querySelectorAll: selector => selector === '[data-beta-cta]' ? links.slice(0, 2) : links};
+      vm.runInNewContext(script, {document, navigator, Blob});
+      assert.equal(links[0].href, expected);
+      assert.equal(links[1].href, expected);
+      links.forEach(entry => entry.click());
+      await Promise.all(promises);
+      assert.deepEqual(events.map(event => event.platform_target),
+        expected === api.ANDROID_APK_URL ? ['android','android','android','ios'] : ['android','ios']);
+      for (const event of events) {
+        assert.equal(event.language, language);
+        assert.deepEqual(Object.keys(event).sort(), ['device_type','language','platform_target','source_cta']);
+      }
+    }
   }
 });

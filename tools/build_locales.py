@@ -91,9 +91,9 @@ AKTIVITY|ACTIVITIES|AKTIVITÄTEN|AKTIVITY|AKTYWNOŚCI
 POSTAVA|PHYSIQUE|KÖRPER|POSTAVA|SYLWETKA
 Ilustrace oblastí progresu · nejde o obrazovku aplikace ani skutečná data|Illustration of progress areas · not an app screen or real data|Illustration der Fortschrittsbereiche · keine App-Ansicht oder echten Daten|Ilustrácia oblastí progresu · nejde o obrazovku aplikácie ani skutočné dáta|Ilustracja obszarów postępu · nie jest ekranem aplikacji ani rzeczywistymi danymi
 03 / BUĎ U TOHO|03 / BE PART OF IT|03 / SEI DABEI|03 / BUĎ PRI TOM|03 / DOŁĄCZ
-WOOTREX je nyní v beta testování pro Android i iOS přes TestFlight.|WOOTREX is now available for beta testing on Android and on iOS via TestFlight.|WOOTREX ist jetzt als Beta für Android und für iOS über TestFlight verfügbar.|WOOTREX je teraz dostupný na beta testovanie pre Android aj iOS cez TestFlight.|WOOTREX jest teraz dostępny w wersji beta na Androida i na iOS przez TestFlight.
+WOOTREX Beta 3 je dostupná pro Android i iOS přes TestFlight.|WOOTREX Beta 3 is available for Android and for iOS via TestFlight.|WOOTREX Beta 3 ist für Android und für iOS über TestFlight verfügbar.|WOOTREX Beta 3 je dostupná pre Android aj iOS cez TestFlight.|WOOTREX Beta 3 jest dostępny na Androida i na iOS przez TestFlight.
 Uzavřené testování|Closed testing|Geschlossener Test|Uzavreté testovanie|Zamknięte testy
-Beta přes TestFlight|Beta via TestFlight|Beta über TestFlight|Beta cez TestFlight|Beta przez TestFlight
+Beta 3 · 1.0.0 (sestavení 3) · TestFlight|Beta 3 · 1.0.0 (build 3) · TestFlight|Beta 3 · 1.0.0 (Build 3) · TestFlight|Beta 3 · 1.0.0 (zostava 3) · TestFlight|Beta 3 · 1.0.0 (kompilacja 3) · TestFlight
 Stáhnout iOS beta / TestFlight|Download iOS Beta / TestFlight|iOS-Beta laden / TestFlight|Stiahnuť iOS beta / TestFlight|Pobierz iOS beta / TestFlight
 Chci se zapojit do testování|Join the testing programme|Am Test teilnehmen|Chcem sa zapojiť do testovania|Chcę dołączyć do testów
 Napiš nám. Společně posuneme WOOTREX dál.|Write to us. Together we can move WOOTREX forward.|Schreib uns. Gemeinsam bringen wir WOOTREX weiter.|Napíš nám. Spoločne posunieme WOOTREX ďalej.|Napisz do nas. Razem rozwiniemy WOOTREX.
