@@ -1,30 +1,30 @@
 {
-  "build": 4,
+  "build": 5,
   "version": "1.0.0",
   "beta": "Beta 4",
-  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta4/Wootrex-Beta4-v1.0.0.apk",
+  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta5/Wootrex-Beta4-v1.0.0.apk",
   "recommended": true,
   "critical": false,
   "changes": {
     "cs": [
-      "Rychlý start aktivit a uložených plánů.",
-      "Nový Progres a statistiky jednotlivých sportů."
+      "Automatická kontrola APK aktualizací.",
+      "Ruční kontrola v Nastavení a možnost odložit upozornění."
     ],
     "en": [
-      "Quick start for activities and saved plans.",
-      "New Progress and sport-specific statistics."
+      "Automatic APK update checks.",
+      "Manual check in Settings and an option to defer reminders."
     ],
     "de": [
-      "Schnellstart für Aktivitäten und gespeicherte Pläne.",
-      "Neuer Fortschritt und sportartspezifische Statistiken."
+      "Automatische Prüfung auf APK-Updates.",
+      "Manuelle Prüfung in den Einstellungen und aufschiebbare Hinweise."
     ],
     "sk": [
-      "Rýchly štart aktivít a uložených plánov.",
-      "Nový Progres a štatistiky jednotlivých športov."
+      "Automatická kontrola APK aktualizácií.",
+      "Ručná kontrola v Nastaveniach a možnosť odložiť upozornenie."
     ],
     "pl": [
-      "Szybki start aktywności i zapisanych planów.",
-      "Nowe postępy i statystyki poszczególnych sportów."
+      "Automatyczne sprawdzanie aktualizacji APK.",
+      "Ręczne sprawdzanie w ustawieniach i możliwość odłożenia powiadomienia."
     ]
   }
 }

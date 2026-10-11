@@ -7,7 +7,7 @@ BASE.add_argument('--base-url',default='https://wootrex.cz/')
 base=BASE.parse_args().base_url.rstrip('/')+'/'
 # Each row is Czech | English | German | Slovak | Polish.
 rows = """
-Beta 4 · 1.0.0 (sestavení 4)|Beta 4 · 1.0.0 (build 4)|Beta 4 · 1.0.0 (Build 4)|Beta 4 · 1.0.0 (zostava 4)|Beta 4 · 1.0.0 (kompilacja 4)
+Beta 4 · 1.0.0 (sestavení 5)|Beta 4 · 1.0.0 (build 5)|Beta 4 · 1.0.0 (Build 5)|Beta 4 · 1.0.0 (zostava 5)|Beta 4 · 1.0.0 (kompilacja 5)
 iOS beta přes TestFlight|iOS beta via TestFlight|iOS-Beta über TestFlight|iOS beta cez TestFlight|iOS beta przez TestFlight
 Nainstaluj TestFlight z App Storu.|Install TestFlight from the App Store.|Installiere TestFlight aus dem App Store.|Nainštaluj TestFlight z App Storu.|Zainstaluj TestFlight z App Store.
 Vrať se sem a klepni na „Otevřít WOOTREX v TestFlightu“.|Return here and tap “Open WOOTREX in TestFlight”.|Kehre hierher zurück und tippe auf „WOOTREX in TestFlight öffnen“.|Vráť sa sem a klepni na „Otvoriť WOOTREX v TestFlighte“.|Wróć tutaj i stuknij „Otwórz WOOTREX w TestFlight”.
