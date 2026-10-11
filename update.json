@@ -1,0 +1,30 @@
+{
+  "build": 4,
+  "version": "1.0.0",
+  "beta": "Beta 4",
+  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta4/Wootrex-Beta4-v1.0.0.apk",
+  "recommended": true,
+  "critical": false,
+  "changes": {
+    "cs": [
+      "Rychlý start aktivit a uložených plánů.",
+      "Nový Progres a statistiky jednotlivých sportů."
+    ],
+    "en": [
+      "Quick start for activities and saved plans.",
+      "New Progress and sport-specific statistics."
+    ],
+    "de": [
+      "Schnellstart für Aktivitäten und gespeicherte Pläne.",
+      "Neuer Fortschritt und sportartspezifische Statistiken."
+    ],
+    "sk": [
+      "Rýchly štart aktivít a uložených plánov.",
+      "Nový Progres a štatistiky jednotlivých športov."
+    ],
+    "pl": [
+      "Szybki start aktywności i zapisanych planów.",
+      "Nowe postępy i statystyki poszczególnych sportów."
+    ]
+  }
+}
