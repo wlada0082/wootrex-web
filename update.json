@@ -1,30 +1,40 @@
 {
-  "build": 5,
+  "build": 21,
   "version": "1.0.0",
-  "beta": "Beta 4",
-  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta5/Wootrex-Beta4-v1.0.0.apk",
-  "recommended": true,
-  "critical": false,
+  "beta": "Beta 5",
+  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta21/Wootrex-Beta5-v1.0.0.apk",
   "changes": {
     "cs": [
-      "Automatická kontrola APK aktualizací.",
-      "Ruční kontrola v Nastavení a možnost odložit upozornění."
+      "Nové přehledy Dnes, Trénink, Progres a Statistiky.",
+      "Opakování tréninku, pracovní série a zvukový odpočet.",
+      "GPS aktivity, fotografie a PNG sdílení s úpravou výřezu.",
+      "Opravy bezpečnosti ukládání plánů, fotografií a historie."
     ],
     "en": [
-      "Automatic APK update checks.",
-      "Manual check in Settings and an option to defer reminders."
+      "Today, Workout, Progress and Statistics views.",
+      "Repeat workouts, working sets and audible rest countdown.",
+      "GPS activities, photos and PNG sharing with photo cropping.",
+      "Safer storage of plans, photos and history."
     ],
     "de": [
-      "Automatische Prüfung auf APK-Updates.",
-      "Manuelle Prüfung in den Einstellungen und aufschiebbare Hinweise."
+      "Ansichten Heute, Training, Fortschritt und Statistiken.",
+      "Training wiederholen, Arbeitssätze und akustischer Pausentimer.",
+      "GPS-Aktivitäten, Fotos und PNG-Teilen mit Bildausschnitt.",
+      "Sichereres Speichern von Plänen, Fotos und Verlauf."
     ],
     "sk": [
-      "Automatická kontrola APK aktualizácií.",
-      "Ručná kontrola v Nastaveniach a možnosť odložiť upozornenie."
+      "Prehľady Dnes, Tréning, Progres a Štatistiky.",
+      "Opakovanie tréningu, pracovné série a zvukový odpočet.",
+      "GPS aktivity, fotografie a PNG zdieľanie s úpravou výrezu.",
+      "Bezpečnejšie ukladanie plánov, fotografií a histórie."
     ],
     "pl": [
-      "Automatyczne sprawdzanie aktualizacji APK.",
-      "Ręczne sprawdzanie w ustawieniach i możliwość odłożenia powiadomienia."
+      "Widoki Dzisiaj, Trening, Postęp i Statystyki.",
+      "Powtarzanie treningu, serie robocze i dźwiękowe odliczanie odpoczynku.",
+      "Aktywności GPS, zdjęcia i udostępnianie PNG z kadrowaniem.",
+      "Bezpieczniejszy zapis planów, zdjęć i historii."
     ]
-  }
+  },
+  "recommended": true,
+  "critical": false
 }

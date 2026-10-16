@@ -7,7 +7,7 @@ BASE.add_argument('--base-url',default='https://wootrex.cz/')
 base=BASE.parse_args().base_url.rstrip('/')+'/'
 # Each row is Czech | English | German | Slovak | Polish.
 rows = """
-Beta 4 · 1.0.0 (sestavení 5)|Beta 4 · 1.0.0 (build 5)|Beta 4 · 1.0.0 (Build 5)|Beta 4 · 1.0.0 (zostava 5)|Beta 4 · 1.0.0 (kompilacja 5)
+Beta 5 · 1.0.0 (sestavení 21)|Beta 5 · 1.0.0 (build 21)|Beta 5 · 1.0.0 (Build 21)|Beta 5 · 1.0.0 (zostava 21)|Beta 5 · 1.0.0 (kompilacja 21)
 iOS beta přes TestFlight|iOS beta via TestFlight|iOS-Beta über TestFlight|iOS beta cez TestFlight|iOS beta przez TestFlight
 Nainstaluj TestFlight z App Storu.|Install TestFlight from the App Store.|Installiere TestFlight aus dem App Store.|Nainštaluj TestFlight z App Storu.|Zainstaluj TestFlight z App Store.
 Vrať se sem a klepni na „Otevřít WOOTREX v TestFlightu“.|Return here and tap “Open WOOTREX in TestFlight”.|Kehre hierher zurück und tippe auf „WOOTREX in TestFlight öffnen“.|Vráť sa sem a klepni na „Otvoriť WOOTREX v TestFlighte“.|Wróć tutaj i stuknij „Otwórz WOOTREX w TestFlight”.
@@ -92,7 +92,7 @@ AKTIVITY|ACTIVITIES|AKTIVITÄTEN|AKTIVITY|AKTYWNOŚCI
 POSTAVA|PHYSIQUE|KÖRPER|POSTAVA|SYLWETKA
 Ilustrace oblastí progresu · nejde o obrazovku aplikace ani skutečná data|Illustration of progress areas · not an app screen or real data|Illustration der Fortschrittsbereiche · keine App-Ansicht oder echten Daten|Ilustrácia oblastí progresu · nejde o obrazovku aplikácie ani skutočné dáta|Ilustracja obszarów postępu · nie jest ekranem aplikacji ani rzeczywistymi danymi
 03 / BUĎ U TOHO|03 / BE PART OF IT|03 / SEI DABEI|03 / BUĎ PRI TOM|03 / DOŁĄCZ
-WOOTREX Beta 4 je dostupná pro Android i iOS přes TestFlight.|WOOTREX Beta 4 is available for Android and for iOS via TestFlight.|WOOTREX Beta 4 ist für Android und für iOS über TestFlight verfügbar.|WOOTREX Beta 4 je dostupná pre Android aj iOS cez TestFlight.|WOOTREX Beta 4 jest dostępny na Androida i na iOS przez TestFlight.
+WOOTREX Beta 5 je dostupná pro Android. Pro iOS zůstává Beta 4 přes TestFlight.|WOOTREX Beta 5 is available for Android. iOS remains on Beta 4 via TestFlight.|WOOTREX Beta 5 ist für Android verfügbar. Für iOS bleibt Beta 4 über TestFlight verfügbar.|WOOTREX Beta 5 je dostupná pre Android. Pre iOS zostáva Beta 4 cez TestFlight.|WOOTREX Beta 5 jest dostępny na Androida. Dla iOS pozostaje Beta 4 przez TestFlight.
 Uzavřené testování|Closed testing|Geschlossener Test|Uzavreté testovanie|Zamknięte testy
 Beta 4 · 1.0.0 (sestavení 4) · TestFlight|Beta 4 · 1.0.0 (build 4) · TestFlight|Beta 4 · 1.0.0 (Build 4) · TestFlight|Beta 4 · 1.0.0 (zostava 4) · TestFlight|Beta 4 · 1.0.0 (kompilacja 4) · TestFlight
 Stáhnout iOS beta / TestFlight|Download iOS Beta / TestFlight|iOS-Beta laden / TestFlight|Stiahnuť iOS beta / TestFlight|Pobierz iOS beta / TestFlight
