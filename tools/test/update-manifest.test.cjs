@@ -9,12 +9,12 @@ test('update manifest advertises released Beta 5 build 21 with five translations
  for (const l of ['cs','en','de','sk','pl']) assert.ok(m.changes[l].length);
 });
 
-test('Android build 21 and iOS build 4 remain separate in every generated page', () => {
- const labels={cs:['sestavení 21','sestavení 4'],en:['build 21','build 4'],de:['Build 21','Build 4'],sk:['zostava 21','zostava 4'],pl:['kompilacja 21','kompilacja 4']};
+test('Android Beta 5 and iOS Beta 6 build 21 remain separate in every generated page', () => {
+ const labels={cs:['sestavení 21','sestavení 21'],en:['build 21','build 21'],de:['Build 21','Build 21'],sk:['zostava 21','zostava 21'],pl:['kompilacja 21','kompilacja 21']};
  for(const [language,[android,ios]] of Object.entries(labels)) {
   const page=fs.readFileSync(path.join(__dirname,'../../',language,'index.html'),'utf8');
   assert.ok(page.includes(`Beta 5 · 1.0.0 (${android})</p>`));
-  assert.ok(page.includes(`Beta 4 · 1.0.0 (${ios}) · TestFlight`));
+  assert.ok(page.includes(`Beta 6 · 1.0.0 (${ios}) · TestFlight`));
   assert.ok(!page.includes('releases/download/v1.0.0-beta4/'));
  }
 });
