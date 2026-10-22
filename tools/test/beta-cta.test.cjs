@@ -50,9 +50,9 @@ test('published pages keep the exact beta URLs and CTA labels', () => {
     'tools/templates/index.html'];
   for (const name of pages) {
     const content = fs.readFileSync(path.join(ROOT, name), 'utf8');
-    assert.ok(content.includes(api.ANDROID_APK_URL), name + ' keeps the exact Beta 5 APK URL');
+    assert.ok(content.includes(api.ANDROID_APK_URL), name + ' keeps the exact Beta 129 APK URL');
     assert.ok(!content.includes('v1.0.0-beta2/'), name + ' has no Beta 2 download');
-    assert.ok(content.includes('WOOTREX Beta 5'), name + ' announces Beta 5');
+    assert.ok(content.includes('WOOTREX Beta 129'), name + ' announces Beta 129');
     assert.ok(content.includes('1.0.0'), name + ' identifies the app version');
     assert.ok(content.includes(api.IOS_TESTFLIGHT_URL), name + ' keeps the exact TestFlight URL');
     assert.ok(content.includes('data-cta="hero"'), name + ' labels the hero CTA');

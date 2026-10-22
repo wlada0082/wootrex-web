@@ -7,7 +7,7 @@ BASE.add_argument('--base-url',default='https://wootrex.cz/')
 base=BASE.parse_args().base_url.rstrip('/')+'/'
 # Each row is Czech | English | German | Slovak | Polish.
 rows = """
-Beta 5 · 1.0.0 (sestavení 21)|Beta 5 · 1.0.0 (build 21)|Beta 5 · 1.0.0 (Build 21)|Beta 5 · 1.0.0 (zostava 21)|Beta 5 · 1.0.0 (kompilacja 21)
+Beta 129 · 1.0.0 (sestavení 129)|Beta 129 · 1.0.0 (build 129)|Beta 129 · 1.0.0 (Build 129)|Beta 129 · 1.0.0 (zostava 129)|Beta 129 · 1.0.0 (kompilacja 129)
 iOS beta přes TestFlight|iOS beta via TestFlight|iOS-Beta über TestFlight|iOS beta cez TestFlight|iOS beta przez TestFlight
 Nainstaluj TestFlight z App Storu.|Install TestFlight from the App Store.|Installiere TestFlight aus dem App Store.|Nainštaluj TestFlight z App Storu.|Zainstaluj TestFlight z App Store.
 Vrať se sem a klepni na „Otevřít WOOTREX v TestFlightu“.|Return here and tap “Open WOOTREX in TestFlight”.|Kehre hierher zurück und tippe auf „WOOTREX in TestFlight öffnen“.|Vráť sa sem a klepni na „Otvoriť WOOTREX v TestFlighte“.|Wróć tutaj i stuknij „Otwórz WOOTREX w TestFlight”.
@@ -92,7 +92,7 @@ AKTIVITY|ACTIVITIES|AKTIVITÄTEN|AKTIVITY|AKTYWNOŚCI
 POSTAVA|PHYSIQUE|KÖRPER|POSTAVA|SYLWETKA
 Ilustrace oblastí progresu · nejde o obrazovku aplikace ani skutečná data|Illustration of progress areas · not an app screen or real data|Illustration der Fortschrittsbereiche · keine App-Ansicht oder echten Daten|Ilustrácia oblastí progresu · nejde o obrazovku aplikácie ani skutočné dáta|Ilustracja obszarów postępu · nie jest ekranem aplikacji ani rzeczywistymi danymi
 03 / BUĎ U TOHO|03 / BE PART OF IT|03 / SEI DABEI|03 / BUĎ PRI TOM|03 / DOŁĄCZ
-WOOTREX Beta 5 je dostupná pro Android. Pro iPhone je nyní dostupná Beta 6 přes TestFlight.|WOOTREX Beta 5 is available for Android. Beta 6 for iPhone is now available via TestFlight.|WOOTREX Beta 5 ist für Android verfügbar. Für iPhone ist jetzt Beta 6 über TestFlight verfügbar.|WOOTREX Beta 5 je dostupná pre Android. Pre iPhone je teraz dostupná Beta 6 cez TestFlight.|WOOTREX Beta 5 jest dostępny na Androida. Beta 6 na iPhone'a jest już dostępna przez TestFlight.
+WOOTREX Beta 129 je dostupná pro Android. Pro iPhone je nyní dostupná Beta 6 přes TestFlight.|WOOTREX Beta 129 is available for Android. Beta 6 for iPhone is now available via TestFlight.|WOOTREX Beta 129 ist für Android verfügbar. Für iPhone ist jetzt Beta 6 über TestFlight verfügbar.|WOOTREX Beta 129 je dostupná pre Android. Pre iPhone je teraz dostupná Beta 6 cez TestFlight.|WOOTREX Beta 129 jest dostępny na Androida. Beta 6 na iPhone'a jest już dostępna przez TestFlight.
 Uzavřené testování|Closed testing|Geschlossener Test|Uzavreté testovanie|Zamknięte testy
 Beta 6 · 1.0.0 (sestavení 21) · TestFlight|Beta 6 · 1.0.0 (build 21) · TestFlight|Beta 6 · 1.0.0 (Build 21) · TestFlight|Beta 6 · 1.0.0 (zostava 21) · TestFlight|Beta 6 · 1.0.0 (kompilacja 21) · TestFlight
 Stáhnout iOS beta / TestFlight|Download iOS Beta / TestFlight|iOS-Beta laden / TestFlight|Stiahnuť iOS beta / TestFlight|Pobierz iOS beta / TestFlight

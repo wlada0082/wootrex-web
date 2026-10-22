@@ -1,38 +1,28 @@
 {
-  "build": 21,
+  "build": 129,
   "version": "1.0.0",
-  "beta": "Beta 5",
-  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta21/Wootrex-Beta5-v1.0.0.apk",
+  "beta": "Beta 129",
+  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta129/WOOTREX-Beta129-1.0.0-129.apk",
   "changes": {
     "cs": [
-      "Nové přehledy Dnes, Trénink, Progres a Statistiky.",
-      "Opakování tréninku, pracovní série a zvukový odpočet.",
-      "GPS aktivity, fotografie a PNG sdílení s úpravou výřezu.",
-      "Opravy bezpečnosti ukládání plánů, fotografií a historie."
+      "Označení rozehřívací série automaticky doplní náhradní pracovní sérii.",
+      "Plánovaný počet pracovních sérií a zadané hodnoty zůstávají zachované; opakované přepínání nevytváří duplicity."
     ],
     "en": [
-      "Today, Workout, Progress and Statistics views.",
-      "Repeat workouts, working sets and audible rest countdown.",
-      "GPS activities, photos and PNG sharing with photo cropping.",
-      "Safer storage of plans, photos and history."
+      "Marking a set as warm-up automatically adds a replacement working set.",
+      "The planned working-set count and entered values are preserved; repeated toggling does not create duplicates."
     ],
     "de": [
-      "Ansichten Heute, Training, Fortschritt und Statistiken.",
-      "Training wiederholen, Arbeitssätze und akustischer Pausentimer.",
-      "GPS-Aktivitäten, Fotos und PNG-Teilen mit Bildausschnitt.",
-      "Sichereres Speichern von Plänen, Fotos und Verlauf."
+      "Beim Markieren eines Aufwärmsatzes wird automatisch ein zusätzlicher Arbeitssatz ergänzt.",
+      "Die geplante Anzahl der Arbeitssätze und eingegebene Werte bleiben erhalten; wiederholtes Umschalten erzeugt keine Duplikate."
     ],
     "sk": [
-      "Prehľady Dnes, Tréning, Progres a Štatistiky.",
-      "Opakovanie tréningu, pracovné série a zvukový odpočet.",
-      "GPS aktivity, fotografie a PNG zdieľanie s úpravou výrezu.",
-      "Bezpečnejšie ukladanie plánov, fotografií a histórie."
+      "Označenie zahrievacej série automaticky doplní náhradnú pracovnú sériu.",
+      "Plánovaný počet pracovných sérií a zadané hodnoty zostávajú zachované; opakované prepínanie nevytvára duplicity."
     ],
     "pl": [
-      "Widoki Dzisiaj, Trening, Postęp i Statystyki.",
-      "Powtarzanie treningu, serie robocze i dźwiękowe odliczanie odpoczynku.",
-      "Aktywności GPS, zdjęcia i udostępnianie PNG z kadrowaniem.",
-      "Bezpieczniejszy zapis planów, zdjęć i historii."
+      "Oznaczenie serii jako rozgrzewkowej automatycznie dodaje zastępczą serię roboczą.",
+      "Planowana liczba serii roboczych i wpisane wartości zostają zachowane; wielokrotne przełączanie nie tworzy duplikatów."
     ]
   },
   "recommended": true,
