@@ -1,0 +1,106 @@
+{
+  "publishedAt": "2026-10-25",
+  "author": "Redakce WOOTREX",
+  "articles": [
+    {
+      "slug": "progresivni-pretizeni",
+      "title": "Progresivní přetížení: malé kroky, které posouvají trénink",
+      "description": "Kdy přidat váhu, kdy opakování a proč nemusíš překonávat rekord při každé návštěvě posilovny.",
+      "minutes": 6,
+      "label": "Principy tréninku",
+      "cover": "Malé kroky.\nDlouhodobý posun.",
+      "sources": [
+        {
+          "title": "ACSM (2009): Progression models in resistance training for healthy adults",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19204579/",
+          "note": "Odborné stanovisko k postupnému zvyšování nároků v silovém tréninku."
+        },
+        {
+          "title": "Plotkin a kol. (2022): Progressive overload without progressing load?",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/36199287/",
+          "note": "Osm týdnů, 43 trénovaných účastníků; přímé srovnání přidávání váhy a opakování."
+        },
+        {
+          "title": "Currier a kol. / ACSM (2026): Resistance Training Prescription — An Overview of Reviews",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41843416/",
+          "note": "Aktuální souhrn přehledů pro zdravé dospělé; rozlišuje sílu, růst svalů a další cíle."
+        },
+        {
+          "title": "Kassiano a kol. (2026): Progressive Overload Affects the Magnitude of Muscle Hypertrophy",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41718594/",
+          "note": "Osm týdnů, 55 netrénovaných mladých žen; srovnání progresivního zatížení a neměnného tréninku při cvičení tricepsu."
+        }
+      ]
+    },
+    {
+      "slug": "silovy-trenink-pro-zeny",
+      "title": "Silový trénink pro všechny: proč se ženy nemusí bát činek",
+      "description": "Síla, svaly a zdravé stárnutí nejsou jen mužské téma. Co ukazují studie a jak začít bez zbytečných obav.",
+      "minutes": 6,
+      "label": "Ženy a silový trénink",
+      "cover": "Síla patří\ni tobě.",
+      "sources": [
+        {
+          "title": "Roberts, Nuckols a Krieger (2020): Sex Differences in Resistance Training",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/32218059/",
+          "note": "Systematický přehled a metaanalýza reakcí žen a mužů na stejný trénink."
+        },
+        {
+          "title": "Watson a kol. (2018): The LIFTMOR randomized controlled trial",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/28975661/",
+          "note": "Osmiměsíční, odborně vedená studie u 101 žen po menopauze s nízkou kostní hmotou."
+        },
+        {
+          "title": "Lopes a kol. (2019): Elastic versus conventional resistance training",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/30815258/",
+          "note": "Metaanalýza osmi studií porovnávajících pružný odpor a běžné posilovací vybavení."
+        },
+        {
+          "title": "Currier a kol. / ACSM (2026): Resistance Training Prescription — An Overview of Reviews",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41843416/",
+          "note": "Souhrn výzkumu u zdravých dospělých; vybavení a trénink do selhání nejsou univerzální podmínkou výsledků."
+        },
+        {
+          "title": "WHO (2020): Guidelines on physical activity and sedentary behaviour — recommendations",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK566046/",
+          "note": "Doporučení zahrnují posilování i aerobní pohyb; jedna složka nenahrazuje všechny přínosy druhé."
+        }
+      ]
+    },
+    {
+      "slug": "silovy-trenink-po-40-a-50",
+      "title": "Silový trénink po čtyřicítce a padesátce: má smysl začít i teď",
+      "description": "Silnější nohy, snazší běžný den a větší rezerva do dalších let. Jak začít podle svých možností, ne podle data narození.",
+      "minutes": 6,
+      "label": "Síla po 40 a 50",
+      "cover": "Síla pro\nběžný život.",
+      "sources": [
+        {
+          "title": "Fragala a kol. / NSCA (2019): Resistance Training for Older Adults",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/31343601/",
+          "note": "Odborné stanovisko k síle, svalům, funkční zdatnosti a individuálnímu přizpůsobení tréninku."
+        },
+        {
+          "title": "Liu a Latham (2009): Progressive resistance strength training for improving physical function in older adults",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/19588334/",
+          "note": "Cochraneův přehled 121 studií s 6 700 účastníky; přínos pro sílu a některé běžné činnosti."
+        },
+        {
+          "title": "Jones a kol. (2021): Sex Differences in Adaptations in Muscle Strength and Size Following Resistance Training in Older Adults",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/33332016/",
+          "note": "Metaanalýza 30 studií u lidí nad 50 let; výsledky závisí také na tom, zda hodnotíme absolutní, nebo relativní změnu."
+        },
+        {
+          "title": "WHO (2020): Guidelines on physical activity and sedentary behaviour — executive summary",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK566048/",
+          "note": "Posilování alespoň dva dny týdně; od 65 let také vícekomponentní aktivity zaměřené na rovnováhu a sílu."
+        },
+        {
+          "title": "NHS: Physical activity guidelines for older adults",
+          "url": "https://www.nhs.uk/live-well/exercise/physical-activity-guidelines-older-adults/",
+          "note": "Praktické přizpůsobení pohybu kondici a zdravotnímu stavu."
+        }
+      ]
+    }
+  ]
+}

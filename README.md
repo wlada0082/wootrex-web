@@ -89,6 +89,15 @@ The root and /cs/ now introduce the app alongside a Czech content magazine. /cs/
 
 Continue generating with `python tools/build_locales.py`. It calls tools/build_fitness_portal.py after the localized landing generation. Portal content templates live in tools/fitness_portal/pages/; shared presentation and optimized media are in assets/fitness/. Do not edit the generated portal pages directly. The portal builder adapts routes, metadata, analytics, language selection and current beta details to the publication origin.
 
-New articles are visibly marked as editorial concepts and use noindex,follow until reviewed; they are omitted from sitemap.xml. The main pages are indexable. Recipe status and the screenshot montage are disclosed on their pages. The generated robots.txt allows the site and excludes the source tools directory.
+The six original sample articles are visibly marked as editorial concepts and use noindex,follow; they are omitted from sitemap.xml. The three sourced strength-training articles and catalog plan pages are published and indexable. The main pages are indexable. Recipe status and the screenshot montage are disclosed on their pages. The generated robots.txt allows the site and excludes the source tools directory.
 
 The illustrative dumbbell photograph was created using ImageGen for this project and optimized as WebP for publication; it is identified as an illustration. Original app screenshots and logo are reused without changing their contents.
+
+
+### Training library and published articles
+
+`tools/fitness_portal/training_plans.json` is a reviewed snapshot of the app catalog. Its source metadata records the app commit and check date; website generation never requires the app checkout or private app configuration. Preserve exercise order, per-exercise set overrides, rep ranges and cardio intervals when updating it. The website provides descriptions and instructions for finding the templates in the app; it does not import plans automatically.
+
+The three published article bodies are in `tools/fitness_portal/articles/`; titles, publication date and linked research references are in `training_articles.json`. `tools/training_content.py` adds these articles, related reading, the filterable plan library and individual plan pages to the existing templates. Article citations identify study populations and practical limits. Do not turn study outcomes into promises of individual results or describe the text as independently clinically reviewed.
+
+Run `python tools/build_locales.py`, then `node --test tools/test`. Published articles include Article structured data, canonical URLs and sitemap entries. CSS and portal JavaScript URLs are content-versioned so updated filtering reaches returning visitors.

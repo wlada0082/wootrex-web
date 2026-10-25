@@ -1,0 +1,825 @@
+{
+  "source": {
+    "repository": "wlada0082/wootrex",
+    "commit": "04647377c7faec5ac7d917ff7b36f0dbe8c7f99a",
+    "path": "lib/data/workout_catalog.dart",
+    "checkedAt": "2026-10-25"
+  },
+  "plans": [
+    {
+      "id": "full-body-start",
+      "name": "Full Body – začátečník",
+      "category": "gym",
+      "level": "beginner",
+      "estimatedMinutes": 45,
+      "description": "Jednoduchý základ na strojích. Začni lehce a soustřeď se na kontrolovaný pohyb.",
+      "sets": 2,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Kladka",
+        "Stroj"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "2–3× týdně, mezi tréninky den volna.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "leg-press",
+          "name": "Leg press",
+          "isCardio": false
+        },
+        {
+          "id": "chest-press",
+          "name": "Tlaky na prsa na stroji",
+          "isCardio": false
+        },
+        {
+          "id": "lat-pulldown",
+          "name": "Stahování horní kladky širokým úchopem",
+          "isCardio": false
+        },
+        {
+          "id": "seated-leg-curl",
+          "name": "Zakopávání vsedě",
+          "isCardio": false
+        },
+        {
+          "id": "crunch",
+          "name": "Zkracovačky",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "full-body-a",
+      "name": "Full Body A",
+      "category": "gym",
+      "level": "intermediate",
+      "estimatedMinutes": 60,
+      "description": "Celé tělo se dřepem, horizontálním tlakem a přítahy. Střídej s variantou B.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Jednoručky",
+        "Kladka",
+        "Lavice",
+        "Osa",
+        "Stojan"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "squat",
+          "name": "Dřep s osou na zádech",
+          "isCardio": false
+        },
+        {
+          "id": "bench-press",
+          "name": "Bench press s osou",
+          "isCardio": false
+        },
+        {
+          "id": "seated-row",
+          "name": "Přítahy spodní kladky s V adaptérem",
+          "isCardio": false
+        },
+        {
+          "id": "romanian-deadlift",
+          "name": "Rumunský mrtvý tah s osou",
+          "isCardio": false
+        },
+        {
+          "id": "lateral-raise",
+          "name": "Upažování s jednoručkami",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "full-body-b",
+      "name": "Full Body B",
+      "category": "gym",
+      "level": "intermediate",
+      "estimatedMinutes": 60,
+      "description": "Celé tělo s důrazem na zadní řetězec a vertikální tah.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Jednoručky",
+        "Kladka",
+        "Lavice",
+        "Osa",
+        "Stroj"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "romanian-deadlift",
+          "name": "Rumunský mrtvý tah s osou",
+          "isCardio": false
+        },
+        {
+          "id": "incline-dumbbell-press",
+          "name": "Tlaky s jednoručkami na šikmé lavici",
+          "isCardio": false
+        },
+        {
+          "id": "lat-pulldown",
+          "name": "Stahování horní kladky širokým úchopem",
+          "isCardio": false
+        },
+        {
+          "id": "leg-press",
+          "name": "Leg press",
+          "isCardio": false
+        },
+        {
+          "id": "face-pull",
+          "name": "Přitahování lana k obličeji",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "push",
+      "name": "PUSH – základ",
+      "category": "gym",
+      "level": "intermediate",
+      "estimatedMinutes": 60,
+      "description": "Prsa, ramena a triceps. Po zahřátí postupuj od hlavních tlaků k doplňkům.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {
+        "bench-press": 4
+      },
+      "equipment": [
+        "Jednoručky",
+        "Kladka",
+        "Lavice",
+        "Osa",
+        "Stroj"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "bench-press",
+          "name": "Bench press s osou",
+          "isCardio": false
+        },
+        {
+          "id": "incline-dumbbell-press",
+          "name": "Tlaky s jednoručkami na šikmé lavici",
+          "isCardio": false
+        },
+        {
+          "id": "peck-deck",
+          "name": "Peck deck",
+          "isCardio": false
+        },
+        {
+          "id": "shoulder-press",
+          "name": "Tlaky na ramena na stroji",
+          "isCardio": false
+        },
+        {
+          "id": "lateral-raise",
+          "name": "Upažování s jednoručkami",
+          "isCardio": false
+        },
+        {
+          "id": "triceps-pushdown",
+          "name": "Stlačování kladky s tyčí na triceps",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "pull",
+      "name": "PULL – základ",
+      "category": "gym",
+      "level": "intermediate",
+      "estimatedMinutes": 55,
+      "description": "Záda, zadní ramena a biceps v jednom tréninku.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Jednoručky",
+        "Kladka",
+        "Stroj"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "lat-pulldown",
+          "name": "Stahování horní kladky širokým úchopem",
+          "isCardio": false
+        },
+        {
+          "id": "seated-row",
+          "name": "Přítahy spodní kladky s V adaptérem",
+          "isCardio": false
+        },
+        {
+          "id": "reverse-peck-deck",
+          "name": "Obrácený peck deck",
+          "isCardio": false
+        },
+        {
+          "id": "dumbbell-curl",
+          "name": "Bicepsový zdvih s jednoručkami",
+          "isCardio": false
+        },
+        {
+          "id": "hammer-curl",
+          "name": "Kladivový zdvih",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "legs",
+      "name": "LEGS – základ",
+      "category": "gym",
+      "level": "intermediate",
+      "estimatedMinutes": 65,
+      "description": "Kompletní nohy s dřepem, kyčelním ohybem a doplňky.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Osa",
+        "Stojan",
+        "Stroj"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "squat",
+          "name": "Dřep s osou na zádech",
+          "isCardio": false
+        },
+        {
+          "id": "romanian-deadlift",
+          "name": "Rumunský mrtvý tah s osou",
+          "isCardio": false
+        },
+        {
+          "id": "leg-extension",
+          "name": "Předkopávání",
+          "isCardio": false
+        },
+        {
+          "id": "leg-curl",
+          "name": "Zakopávání vleže",
+          "isCardio": false
+        },
+        {
+          "id": "standing-calf-raise",
+          "name": "Výpony ve stoje na stroji",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "upper",
+      "name": "Upper Body",
+      "category": "gym",
+      "level": "intermediate",
+      "estimatedMinutes": 60,
+      "description": "Vyvážené tlaky a tahy pro horní polovinu těla.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Jednoručky",
+        "Kladka",
+        "Lavice"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "dumbbell-bench-press",
+          "name": "Tlaky s jednoručkami na rovné lavici",
+          "isCardio": false
+        },
+        {
+          "id": "lat-pulldown",
+          "name": "Stahování horní kladky širokým úchopem",
+          "isCardio": false
+        },
+        {
+          "id": "seated-row",
+          "name": "Přítahy spodní kladky s V adaptérem",
+          "isCardio": false
+        },
+        {
+          "id": "dumbbell-shoulder-press",
+          "name": "Tlaky s jednoručkami nad hlavu",
+          "isCardio": false
+        },
+        {
+          "id": "rope-pushdown",
+          "name": "Stlačování lana na triceps",
+          "isCardio": false
+        },
+        {
+          "id": "dumbbell-curl",
+          "name": "Bicepsový zdvih s jednoručkami",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "lower",
+      "name": "Lower Body",
+      "category": "gym",
+      "level": "beginner",
+      "estimatedMinutes": 45,
+      "description": "Spodní polovina těla převážně na strojích.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Stroj"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "leg-press",
+          "name": "Leg press",
+          "isCardio": false
+        },
+        {
+          "id": "seated-leg-curl",
+          "name": "Zakopávání vsedě",
+          "isCardio": false
+        },
+        {
+          "id": "leg-extension",
+          "name": "Předkopávání",
+          "isCardio": false
+        },
+        {
+          "id": "glute-bridge",
+          "name": "Most na hýždě",
+          "isCardio": false
+        },
+        {
+          "id": "seated-calf-raise",
+          "name": "Výpony vsedě",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "home-full",
+      "name": "Full Body bez vybavení",
+      "category": "home",
+      "level": "beginner",
+      "estimatedMinutes": 25,
+      "description": "Kliky, most a břicho. U kliků zvol lehčí variantu, pokud je potřeba.",
+      "sets": 2,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [],
+      "goal": "Základní síla doma",
+      "frequency": "2–3× týdně s volným dnem mezi tréninky.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "push-up",
+          "name": "Kliky",
+          "isCardio": false
+        },
+        {
+          "id": "glute-bridge",
+          "name": "Most na hýždě",
+          "isCardio": false
+        },
+        {
+          "id": "reverse-crunch",
+          "name": "Obrácené zkracovačky",
+          "isCardio": false
+        },
+        {
+          "id": "dead-bug",
+          "name": "Mrtvý brouk",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "home-upper",
+      "name": "Horní část těla doma",
+      "category": "home",
+      "level": "intermediate",
+      "estimatedMinutes": 25,
+      "description": "Horní část těla s odporovou gumou pro vyvážení tlaků a tahů.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Odporová guma"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "push-up",
+          "name": "Kliky",
+          "isCardio": false
+        },
+        {
+          "id": "band-row",
+          "name": "Přítahy odporové gumy",
+          "isCardio": false
+        },
+        {
+          "id": "band-curl",
+          "name": "Bicepsový zdvih s gumou",
+          "isCardio": false
+        },
+        {
+          "id": "diamond-push-up",
+          "name": "Kliky s úzkým postavením rukou",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "home-legs",
+      "name": "Nohy doma",
+      "category": "home",
+      "level": "beginner",
+      "estimatedMinutes": 25,
+      "description": "Jednoručky, stabilní opora a kontrolovaný rozsah pohybu.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Jednoručky",
+        "Stabilní opora"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "goblet-squat",
+          "name": "Goblet dřep s kettlebellem",
+          "isCardio": false
+        },
+        {
+          "id": "dumbbell-romanian-deadlift",
+          "name": "Rumunský mrtvý tah s jednoručkami",
+          "isCardio": false
+        },
+        {
+          "id": "glute-bridge",
+          "name": "Most na hýždě",
+          "isCardio": false
+        },
+        {
+          "id": "single-leg-calf-raise",
+          "name": "Výpony na jedné noze",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "street-start",
+      "name": "Street Full Body – začátečník",
+      "category": "street",
+      "level": "beginner",
+      "estimatedMinutes": 30,
+      "description": "Přítahy na nízké hrazdě, kliky a most. Náročnost přítahů uprav polohou nohou.",
+      "sets": 2,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Nízká hrazda"
+      ],
+      "goal": "Základy kalisteniky",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "inverted-row",
+          "name": "Obrácené přítahy vlastní vahou",
+          "isCardio": false
+        },
+        {
+          "id": "push-up",
+          "name": "Kliky",
+          "isCardio": false
+        },
+        {
+          "id": "glute-bridge",
+          "name": "Most na hýždě",
+          "isCardio": false
+        },
+        {
+          "id": "crunch",
+          "name": "Zkracovačky",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "street-push",
+      "name": "Push Street",
+      "category": "street",
+      "level": "intermediate",
+      "estimatedMinutes": 35,
+      "description": "Tlakový trénink na bradlech a zemi. Použij rozsah, který zvládáš kontrolovat.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Bradla"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "dips",
+          "name": "Dipy na triceps",
+          "isCardio": false
+        },
+        {
+          "id": "push-up",
+          "name": "Kliky",
+          "isCardio": false
+        },
+        {
+          "id": "diamond-push-up",
+          "name": "Kliky s úzkým postavením rukou",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "street-pull",
+      "name": "Pull Street",
+      "category": "street",
+      "level": "advanced",
+      "estimatedMinutes": 40,
+      "description": "Shyby a přítahy pro zkušenější. Série ukonči při ztrátě techniky.",
+      "sets": 3,
+      "minReps": 5,
+      "maxReps": 10,
+      "setCounts": {},
+      "equipment": [
+        "Hrazda",
+        "Nízká hrazda"
+      ],
+      "goal": "Síla a svalový rozvoj",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "pull-up",
+          "name": "Shyby nadhmatem",
+          "isCardio": false
+        },
+        {
+          "id": "chin-up",
+          "name": "Shyby podhmatem",
+          "isCardio": false
+        },
+        {
+          "id": "inverted-row",
+          "name": "Obrácené přítahy vlastní vahou",
+          "isCardio": false
+        },
+        {
+          "id": "hanging-knee-raise",
+          "name": "Zvedání kolen ve visu",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "circuit",
+      "name": "Krátký kondiční kruháč",
+      "category": "conditioning",
+      "level": "beginner",
+      "estimatedMinutes": 20,
+      "description": "2 kola: projdi cviky po jedné sérii, odpočívej podle potřeby. Kola zapisuj jako série.",
+      "sets": 2,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [],
+      "goal": "Základní kondice",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [],
+      "exercises": [
+        {
+          "id": "push-up",
+          "name": "Kliky",
+          "isCardio": false
+        },
+        {
+          "id": "glute-bridge",
+          "name": "Most na hýždě",
+          "isCardio": false
+        },
+        {
+          "id": "crunch",
+          "name": "Zkracovačky",
+          "isCardio": false
+        }
+      ]
+    },
+    {
+      "id": "conditioning",
+      "name": "Full Body Conditioning",
+      "category": "conditioning",
+      "level": "intermediate",
+      "estimatedMinutes": 40,
+      "description": "3 kola silové části, poté 10 minut lehkého rotopedu. Pauzy podle potřeby.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [
+        "Jednoručky",
+        "Rotoped"
+      ],
+      "goal": "Síla a vytrvalost",
+      "frequency": "Podle rozdělení týdne, s prostorem pro regeneraci.",
+      "intervals": [
+        {
+          "label": "lehce",
+          "durationSeconds": 600
+        }
+      ],
+      "exercises": [
+        {
+          "id": "goblet-squat",
+          "name": "Goblet dřep s kettlebellem",
+          "isCardio": false
+        },
+        {
+          "id": "push-up",
+          "name": "Kliky",
+          "isCardio": false
+        },
+        {
+          "id": "dumbbell-row",
+          "name": "Přítahy jednoručky s oporou",
+          "isCardio": false
+        },
+        {
+          "id": "stationary-bike",
+          "name": "Rotoped",
+          "isCardio": true
+        }
+      ]
+    },
+    {
+      "id": "easy-run",
+      "name": "Lehký běh",
+      "category": "running",
+      "level": "beginner",
+      "estimatedMinutes": 25,
+      "description": "5 min svižné chůze, 15 min lehkého běhu, 5 min chůze. Tempo dovoluje mluvit v celých větách.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [],
+      "goal": "Základní vytrvalost",
+      "frequency": "2–3× týdně podle ostatní zátěže.",
+      "intervals": [
+        {
+          "label": "chůze",
+          "durationSeconds": 300
+        },
+        {
+          "label": "lehký běh",
+          "durationSeconds": 900
+        },
+        {
+          "label": "chůze",
+          "durationSeconds": 300
+        }
+      ],
+      "exercises": [
+        {
+          "id": "outdoor-run",
+          "name": "Běh venku",
+          "isCardio": true
+        }
+      ]
+    },
+    {
+      "id": "interval-run",
+      "name": "Intervalový běh – základ",
+      "category": "running",
+      "level": "intermediate",
+      "estimatedMinutes": 45,
+      "description": "Rychlejší úseky kontrolovaně, ne sprint. Nejprve si osvoj pravidelný lehký běh.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [],
+      "goal": "Běžecká kondice",
+      "frequency": "Nejvýše 1× týdně jako součást běžeckého týdne.",
+      "intervals": [
+        {
+          "label": "rozklus",
+          "durationSeconds": 600
+        },
+        {
+          "label": "svižně",
+          "durationSeconds": 180,
+          "repetitions": 5,
+          "recoverySeconds": 120
+        },
+        {
+          "label": "výklus",
+          "durationSeconds": 600
+        }
+      ],
+      "exercises": [
+        {
+          "id": "outdoor-run",
+          "name": "Běh venku",
+          "isCardio": true
+        }
+      ]
+    },
+    {
+      "id": "tempo-run",
+      "name": "Tempo běh – základ",
+      "category": "running",
+      "level": "intermediate",
+      "estimatedMinutes": 35,
+      "description": "Souvislý svižný úsek mezi lehkým rozklusem a výklusem. Ne závodní úsilí.",
+      "sets": 3,
+      "minReps": 8,
+      "maxReps": 12,
+      "setCounts": {},
+      "equipment": [],
+      "goal": "Tempová vytrvalost",
+      "frequency": "Nejvýše 1× týdně, nestřídej s intervaly bez regenerace.",
+      "intervals": [
+        {
+          "label": "rozklus",
+          "durationSeconds": 600
+        },
+        {
+          "label": "svižně",
+          "durationSeconds": 900
+        },
+        {
+          "label": "výklus",
+          "durationSeconds": 600
+        }
+      ],
+      "exercises": [
+        {
+          "id": "outdoor-run",
+          "name": "Běh venku",
+          "isCardio": true
+        }
+      ]
+    }
+  ]
+}

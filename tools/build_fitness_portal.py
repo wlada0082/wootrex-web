@@ -1,5 +1,5 @@
 from pathlib import Path
-import re, html, hashlib
+import re, html, hashlib, json
 from urllib.parse import urlsplit
 from xml.sax.saxutils import escape
 ROOT=Path(__file__).resolve().parents[1]
@@ -13,14 +13,16 @@ def build(base_url, legacy_cs):
     beta=beta.group(0).replace('class="section beta"','class="download-box beta"')
     beacon=re.search(r'<!-- Cloudflare Web Analytics -->.*?<!-- End Cloudflare Web Analytics -->',legacy_cs,re.S).group(0)
     language_links='<div class="public-languages" role="group" aria-label="Jazyk">'+''.join(f'<a href="{prefix}/{code}/" data-language="{code}" lang="{code}" hreflang="{code}"'+(' aria-current="page"' if code=='cs' else '')+f'>{label}</a>' for code,label in [('cs','CZ'),('en','EN'),('de','DE'),('sk','SK'),('pl','PL')])+'</div>'
-    about='''<div class="wrap"><section class="page-head"><p class="eyebrow">O WOOTREX</p><h1>Pohyb, jídlo<br>a tvoje další verze.</h1><p class="lead">Inspirace pro běžný den a aplikace, ve které máš přehled o svém tréninku.</p></section><section class="section about-layout" style="padding-top:10px"><h2>Co tu najdeš</h2><p>Praktické články o zapisování a plánování tréninku, srozumitelné pojmy, inspiraci pro přípravu jídla a přehled aplikace WOOTREX. Obsah postupně rozšiřujeme.</p><h2>Aplikace WOOTREX</h2><p>Silový trénink, vlastní plány, historie, statistiky, outdoor aktivity a sledování postavy. Aktuální dostupné verze a postup instalace najdeš v části stažení.</p><a class="text-link" href="/aplikace/#stazeni">Poznat aplikaci a dostupnou betu ↗</a><h2>Jak označujeme obsah</h2><p>Články označené jako redakční koncept zatím neprošly odbornou kontrolou. U návrhu receptu uvádíme, že nebyl kuchyňsky ověřen, a neuvádíme neověřené nutriční výpočty. Koncepty zatím nenabízíme k indexaci vyhledávačům.</p><p>Výživové články a recepty jsou obsah webu. Výživový deník ani jídelníčky jako současnou funkci aplikace neslibujeme.</p><h2>Ukázky a vizuální podklady</h2><p>Snímky obrazovek zachycují aplikaci WOOTREX. Krátké video je sestřih těchto obrazovek, nikoli záznam ovládání. Fotografie činek je ilustrační obrázek vytvořený pomocí AI; grafický motiv u receptu nenahrazuje fotografii připraveného jídla.</p><h2>Kontakt</h2><p>Zpětnou vazbu nebo námět můžeš poslat přes kontaktní část webu.</p><a class="btn" href="/cs/stazeni/#kontakt">Přejít na kontakt <span>↗</span></a></section></div>'''
+    about='''<div class="wrap"><section class="page-head"><p class="eyebrow">O WOOTREX</p><h1>Pohyb, jídlo<br>a tvoje další verze.</h1><p class="lead">Inspirace pro běžný den a aplikace, ve které máš přehled o svém tréninku.</p></section><section class="section about-layout" style="padding-top:10px"><h2>Co tu najdeš</h2><p>Praktické články o zapisování a plánování tréninku, srozumitelné pojmy, inspiraci pro přípravu jídla a přehled aplikace WOOTREX. Obsah postupně rozšiřujeme.</p><h2>Aplikace WOOTREX</h2><p>Silový trénink, vlastní plány, historie, statistiky, outdoor aktivity a sledování postavy. Aktuální dostupné verze a postup instalace najdeš v části stažení.</p><a class="text-link" href="/aplikace/#stazeni">Poznat aplikaci a dostupnou betu ↗</a><h2>Jak označujeme obsah</h2><p>Vzdělávací články redakce WOOTREX odkazují na odborné zdroje a rozlišují jejich výsledky od praktických příkladů. Jde o obecné informace, nikoli individuální zdravotní doporučení. U plánů uvádíme původ v katalogu aplikace.</p><p>Články označené jako redakční koncept zatím neprošly odbornou kontrolou. U návrhu receptu uvádíme, že nebyl kuchyňsky ověřen, a neuvádíme neověřené nutriční výpočty. Koncepty zatím nenabízíme k indexaci vyhledávačům.</p><p>Výživové články a recepty jsou obsah webu. Výživový deník ani jídelníčky jako současnou funkci aplikace neslibujeme.</p><h2>Ukázky a vizuální podklady</h2><p>Snímky obrazovek zachycují aplikaci WOOTREX. Krátké video je sestřih těchto obrazovek, nikoli záznam ovládání. Fotografie činek je ilustrační obrázek vytvořený pomocí AI; grafický motiv u receptu nenahrazuje fotografii připraveného jídla.</p><h2>Kontakt</h2><p>Zpětnou vazbu nebo námět můžeš poslat přes kontaktní část webu.</p><a class="btn" href="/cs/stazeni/#kontakt">Přejít na kontakt <span>↗</span></a></section></div>'''
     css_version=hashlib.sha256((ROOT/'assets/fitness/style.css').read_bytes()).hexdigest()[:12]
+    js_version=hashlib.sha256((ROOT/'assets/fitness/main.js').read_bytes()).hexdigest()[:12]
     indexable=[]
-    for source in sorted(templates.rglob('*.html')):
-        rel=source.relative_to(templates)
+    all_templates={source.relative_to(templates):source.read_text(encoding='utf-8') for source in templates.rglob('*.html')}
+    from training_content import extend_templates
+    published_content=extend_templates(all_templates)
+    for rel,s in sorted(all_templates.items()):
         route='/'+str(rel.parent).replace('\\','/').strip('.')
         route=route.rstrip('/')+'/' if route!='/' else '/'
-        s=source.read_text(encoding='utf-8')
         if route=='/o-webu/':
             s=re.sub(r'<main id="main">.*?</main>',lambda m:'<main id="main">'+about+'</main>',s,flags=re.S)
             s=s.replace('O návrhu fitness webu','O fitness webu').replace('O návrhu webu','O webu').replace('Obsahový a produktový směr samostatného webu WOOTREX.','Trénink, jídlo, aplikace a redakční pravidla webu WOOTREX.')
@@ -47,7 +49,7 @@ def build(base_url, legacy_cs):
         for name in ['training.png.jpg','statistics.png.jpg','physique.png.jpg','wootrex-splash-logo.png']:
             s=s.replace('/assets/'+name,prefix+'/assets/images/'+name)
         for name in ['style.css','main.js','wootrex-ukazka.mp4','video-poster.jpg','captions.vtt']:
-            s=s.replace('/assets/'+name,prefix+'/assets/fitness/'+name+('?v='+css_version if name=='style.css' else ''))
+            s=s.replace('/assets/'+name,prefix+'/assets/fitness/'+name+('?v='+css_version if name=='style.css' else '?v='+js_version if name=='main.js' else ''))
         s=s.replace('/assets/gym-editorial.png',prefix+'/assets/fitness/gym-editorial.webp')
         # Rewrite the prototype root routes to Czech public routes. Asset paths are already final.
         def rewrite(match):
@@ -61,7 +63,7 @@ def build(base_url, legacy_cs):
         footer_contact=f'<a href="{prefix}/cs/stazeni/#kontakt">Kontakt</a>'
         s=s.replace('<div class="footer-links">','<div class="footer-links" id="kontakt">'+footer_contact,1)
         s=s.replace('<div class="footer-bottom">',language_links+'<div class="footer-bottom">',1)
-        draft=len(rel.parts)>2
+        draft=len(rel.parts)>2 and route not in published_content
         s=s.replace('<meta name="robots" content="noindex,nofollow">','<meta name="robots" content="noindex,follow">' if draft else '<meta name="robots" content="index,follow">')
         canonical=base_url+'cs/'+(route.lstrip('/') if route!='/' else '')
         title=re.search(r'<title>(.*?)</title>',s,re.S).group(1)
@@ -69,6 +71,12 @@ def build(base_url, legacy_cs):
         seo=f'<link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:title" content="{html.escape(html.unescape(title),quote=True)}"><meta property="og:description" content="{desc}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{base_url}assets/fitness/gym-editorial.webp"><meta property="og:locale" content="cs_CZ">'
         if route=='/':
             seo+=''.join(f'<link rel="alternate" hreflang="{l}" href="{base_url}{l}/">' for l in ['cs','en','de','sk','pl'])+f'<link rel="alternate" hreflang="x-default" href="{base_url}cs/">'
+        if route in published_content and published_content[route]['kind']=='article':
+            content=published_content[route]
+            structured={'@context':'https://schema.org','@type':'Article','headline':content['title'],'description':content['description'],'datePublished':content['datePublished'],'dateModified':content['datePublished'],'author':{'@type':'Organization','name':'Redakce WOOTREX','url':base_url+'cs/o-webu/'},'publisher':{'@type':'Organization','name':'WOOTREX'},'mainEntityOfPage':canonical,'inLanguage':'cs','citation':[x['url'] for x in content['sources']]}
+            seo+='<script type="application/ld+json">'+json.dumps(structured,ensure_ascii=False).replace('<','\\u003c')+'</script>'
+            s=s.replace('property="og:type" content="website"','property="og:type" content="article"')
+            seo=seo.replace('property="og:type" content="website"','property="og:type" content="article"')
         s=s.replace('</head>',seo+'</head>')
         s=s.replace('</body>',beacon+'</body>')
         target=ROOT/'cs'/rel;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(s+'\n',encoding='utf-8')
