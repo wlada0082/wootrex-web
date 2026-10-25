@@ -3,6 +3,41 @@
   "author": "Redakce WOOTREX",
   "articles": [
     {
+      "slug": "jak-si-nastavit-trenink",
+      "title": "Jak si nastavit trénink: jednoduchý plán, který můžeš zlepšovat",
+      "description": "Vyber rozvrh, drž se cviků a sleduj výkon. Jak nastavit cíle bez hledání zázračného splitu a proč tělesná hmotnost neříká všechno.",
+      "minutes": 9,
+      "label": "Jednoduchý trénink a cíle",
+      "cover": "Stejné cviky.\nMěřitelný posun.",
+      "sources": [
+        {
+          "title": "Ramos-Campo a kol. (2024): Efficacy of Split Versus Full-Body Resistance Training on Strength and Muscle Growth",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/38595233/",
+          "note": "Metaanalýza 14 studií, 392 účastníků. Při srovnatelném objemu nebyl zjištěn významný rozdíl mezi splitem a tréninkem celého těla."
+        },
+        {
+          "title": "Kassiano a kol. (2022): Does Varying Resistance Exercises Promote Superior Muscle Hypertrophy and Strength Gains?",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/35438660/",
+          "note": "Přehled osmi studií u 241 mladých mužů rozlišuje plánovanou variaci a nadměrné náhodné střídání. Nepodporuje tvrzení, že se cviky nikdy nesmějí změnit."
+        },
+        {
+          "title": "Currier a kol. / ACSM (2026): Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/41843416/",
+          "note": "Souhrn 137 přehledů u zdravých dospělých. Doporučuje progresivní odporový trénink; složitost cviků a periodizace neměnily výsledky konzistentně."
+        },
+        {
+          "title": "Wewege a kol. (2022): The Effect of Resistance Training in Healthy Adults on Body Fat Percentage, Fat Mass and Visceral Fat",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/34536199/",
+          "note": "Systematický přehled a metaanalýza tělesného složení. Změna tukové a beztukové hmoty je jiný údaj než samotná celková hmotnost."
+        },
+        {
+          "title": "Kanellakis a kol. (2023): Changes in body weight and body composition during the menstrual cycle",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37395124/",
+          "note": "Měření u 42 žen: průměrná hmotnost při menstruaci byla přibližně o 0,45 kg vyšší, související se změnou mimobuněčné vody. Nejde o pravidlo pro každou ženu."
+        }
+      ]
+    },
+    {
       "slug": "progresivni-pretizeni",
       "title": "Progresivní přetížení: malé kroky, které posouvají trénink",
       "description": "Kdy přidat váhu, kdy opakování a proč nemusíš překonávat rekord při každé návštěvě posilovny.",
