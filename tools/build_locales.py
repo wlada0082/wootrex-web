@@ -233,3 +233,7 @@ for page in [ROOT/'index.html', ROOT/'privacy.html'] + [ROOT/l/name for l in LAN
  assert 'static.cloudflareinsights.com' not in content, page
  assert content.count('</body>')==1, page
  page.write_text(content.replace('</body>', BEACON+'\n</body>'),encoding='utf-8')
+
+# Add the Czech content portal after the established localized landing pages are generated.
+from build_fitness_portal import build as build_fitness_portal
+build_fitness_portal(base, (ROOT/'cs/index.html').read_text(encoding='utf-8'))

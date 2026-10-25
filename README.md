@@ -81,3 +81,14 @@ assets/js/beta-cta.js routes the beta CTAs by device and additionally measures c
 Only four whitelisted fields leave the browser: platform_target (android|ios, derived from the exact destination URL), language (cs|en|de|sk|pl), source_cta and device_type (derived from the user agent). No cookies, no IP storage, no user agent transmission, no identifiers and no fingerprinting. A click means interest, not a confirmed install; the GitHub release download_count stays the separate install proxy. The privacy page documents this processing.
 
 Tests (Node.js, no dependencies): node --test tools/test
+
+
+## Czech fitness portal
+
+The root and /cs/ now introduce the app alongside a Czech content magazine. /cs/aplikace/ contains the current distribution section, sourced from the established localized landing template during generation. #beta and #ios-beta remain valid on the Czech home page. /cs/stazeni/ preserves the full original landing and contact/feedback flow. EN/DE/SK/PL landing pages, all privacy policies, update.json and the beta measurement script retain their established behavior.
+
+Continue generating with `python tools/build_locales.py`. It calls tools/build_fitness_portal.py after the localized landing generation. Portal content templates live in tools/fitness_portal/pages/; shared presentation and optimized media are in assets/fitness/. Do not edit the generated portal pages directly. The portal builder adapts routes, metadata, analytics, language selection and current beta details to the publication origin.
+
+New articles are visibly marked as editorial concepts and use noindex,follow until reviewed; they are omitted from sitemap.xml. The main pages are indexable. Recipe status and the screenshot montage are disclosed on their pages. The generated robots.txt allows the site and excludes the source tools directory.
+
+The illustrative dumbbell photograph was created using ImageGen for this project and optimized as WebP for publication; it is identified as an illustration. Original app screenshots and logo are reused without changing their contents.
