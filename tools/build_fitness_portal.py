@@ -1,5 +1,5 @@
 from pathlib import Path
-import re, html
+import re, html, hashlib
 from urllib.parse import urlsplit
 from xml.sax.saxutils import escape
 ROOT=Path(__file__).resolve().parents[1]
@@ -14,6 +14,7 @@ def build(base_url, legacy_cs):
     beacon=re.search(r'<!-- Cloudflare Web Analytics -->.*?<!-- End Cloudflare Web Analytics -->',legacy_cs,re.S).group(0)
     language_links='<div class="public-languages" role="group" aria-label="Jazyk">'+''.join(f'<a href="{prefix}/{code}/" data-language="{code}" lang="{code}" hreflang="{code}"'+(' aria-current="page"' if code=='cs' else '')+f'>{label}</a>' for code,label in [('cs','CZ'),('en','EN'),('de','DE'),('sk','SK'),('pl','PL')])+'</div>'
     about='''<div class="wrap"><section class="page-head"><p class="eyebrow">O WOOTREX</p><h1>Pohyb, jídlo<br>a tvoje další verze.</h1><p class="lead">Inspirace pro běžný den a aplikace, ve které máš přehled o svém tréninku.</p></section><section class="section about-layout" style="padding-top:10px"><h2>Co tu najdeš</h2><p>Praktické články o zapisování a plánování tréninku, srozumitelné pojmy, inspiraci pro přípravu jídla a přehled aplikace WOOTREX. Obsah postupně rozšiřujeme.</p><h2>Aplikace WOOTREX</h2><p>Silový trénink, vlastní plány, historie, statistiky, outdoor aktivity a sledování postavy. Aktuální dostupné verze a postup instalace najdeš v části stažení.</p><a class="text-link" href="/aplikace/#stazeni">Poznat aplikaci a dostupnou betu ↗</a><h2>Jak označujeme obsah</h2><p>Články označené jako redakční koncept zatím neprošly odbornou kontrolou. U návrhu receptu uvádíme, že nebyl kuchyňsky ověřen, a neuvádíme neověřené nutriční výpočty. Koncepty zatím nenabízíme k indexaci vyhledávačům.</p><p>Výživové články a recepty jsou obsah webu. Výživový deník ani jídelníčky jako současnou funkci aplikace neslibujeme.</p><h2>Ukázky a vizuální podklady</h2><p>Snímky obrazovek zachycují aplikaci WOOTREX. Krátké video je sestřih těchto obrazovek, nikoli záznam ovládání. Fotografie činek je ilustrační obrázek vytvořený pomocí AI; grafický motiv u receptu nenahrazuje fotografii připraveného jídla.</p><h2>Kontakt</h2><p>Zpětnou vazbu nebo námět můžeš poslat přes kontaktní část webu.</p><a class="btn" href="/cs/stazeni/#kontakt">Přejít na kontakt <span>↗</span></a></section></div>'''
+    css_version=hashlib.sha256((ROOT/'assets/fitness/style.css').read_bytes()).hexdigest()[:12]
     indexable=[]
     for source in sorted(templates.rglob('*.html')):
         rel=source.relative_to(templates)
@@ -46,7 +47,7 @@ def build(base_url, legacy_cs):
         for name in ['training.png.jpg','statistics.png.jpg','physique.png.jpg','wootrex-splash-logo.png']:
             s=s.replace('/assets/'+name,prefix+'/assets/images/'+name)
         for name in ['style.css','main.js','wootrex-ukazka.mp4','video-poster.jpg','captions.vtt']:
-            s=s.replace('/assets/'+name,prefix+'/assets/fitness/'+name)
+            s=s.replace('/assets/'+name,prefix+'/assets/fitness/'+name+('?v='+css_version if name=='style.css' else ''))
         s=s.replace('/assets/gym-editorial.png',prefix+'/assets/fitness/gym-editorial.webp')
         # Rewrite the prototype root routes to Czech public routes. Asset paths are already final.
         def rewrite(match):
