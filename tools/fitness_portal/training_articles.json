@@ -4,8 +4,8 @@
   "articles": [
     {
       "slug": "jak-si-nastavit-trenink",
-      "title": "Jak si nastavit trénink: jednoduchý plán, který můžeš zlepšovat",
-      "description": "Vyber rozvrh, drž se cviků a sleduj výkon. Jak nastavit cíle bez hledání zázračného splitu a proč tělesná hmotnost neříká všechno.",
+      "title": "Jak si nastavit trénink a přestat pořád hledat lepší split",
+      "description": "Vyber si sestavu, dej jí čas a sleduj, co zvládáš. Prakticky o cvicích, přidávání zátěže a výsledcích, které osobní váha neukáže.",
       "minutes": 9,
       "label": "Jednoduchý trénink a cíle",
       "cover": "Stejné cviky.\nMěřitelný posun.",
@@ -39,9 +39,9 @@
     },
     {
       "slug": "progresivni-pretizeni",
-      "title": "Progresivní přetížení: malé kroky, které posouvají trénink",
-      "description": "Kdy přidat váhu, kdy opakování a proč nemusíš překonávat rekord při každé návštěvě posilovny.",
-      "minutes": 6,
+      "title": "Progresivní přetížení: kdy přidat a kdy ještě počkat",
+      "description": "Minule osm opakování, dnes devět. I tak může vypadat pokrok. Ukážeme si, jak přidávat bez honění rekordů za každou cenu.",
+      "minutes": 5,
       "label": "Principy tréninku",
       "cover": "Malé kroky.\nDlouhodobý posun.",
       "sources": [
@@ -69,8 +69,8 @@
     },
     {
       "slug": "silovy-trenink-pro-zeny",
-      "title": "Silový trénink pro všechny: proč se ženy nemusí bát činek",
-      "description": "Síla, svaly a zdravé stárnutí nejsou jen mužské téma. Co ukazují studie a jak začít bez zbytečných obav.",
+      "title": "Silový trénink pro ženy: mezi činky můžeš i bez zkušeností",
+      "description": "Nemusíš být silná, abys začala. Jak si vybrat první cviky, přestat se bát činek a poznat vlastní pokrok.",
       "minutes": 6,
       "label": "Ženy a silový trénink",
       "cover": "Síla patří\ni tobě.",
@@ -104,8 +104,8 @@
     },
     {
       "slug": "silovy-trenink-po-40-a-50",
-      "title": "Silový trénink po čtyřicítce a padesátce: má smysl začít i teď",
-      "description": "Silnější nohy, snazší běžný den a větší rezerva do dalších let. Jak začít podle svých možností, ne podle data narození.",
+      "title": "Silový trénink po 40 a 50: začni podle sebe, ne podle věku",
+      "description": "Na začátek nemusí být pozdě. Vyber zvládnutelný plán a buduj sílu, kterou využiješ i mimo fitko.",
       "minutes": 6,
       "label": "Síla po 40 a 50",
       "cover": "Síla pro\nběžný život.",
