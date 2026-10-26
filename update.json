@@ -1,33 +1,33 @@
 {
-  "build": 136,
+  "build": 138,
   "version": "1.0.0",
-  "beta": "Beta 136",
-  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta136/Wootrex-Beta136-v1.0.0.apk",
+  "beta": "Beta 138",
+  "apk_url": "https://github.com/wlada0082/wootrex-web/releases/download/v1.0.0-beta138/Wootrex-Beta138-v1.0.0.apk",
   "changes": {
     "cs": [
-      "Jednodušší nastavení Chytrého progresu a oprava ukládání rozsahu opakování a kroku zátěže.",
-      "Progres pracovních vah, osobní rekordy a automatické střídání cviků v supersériích.",
-      "Stejné funkční změny jako iOS Beta 136. Historie a offline data zůstávají zachována."
+      "Obnovená samostatná záložka Postava vedle Nástrojů. Všech šest položek navigace zůstává dostupných.",
+      "Fotografické proměny: galerie, porovnání PŘED/PO a slideshow.",
+      "Stejné funkce jako iOS Beta 138. Historie a offline data zůstávají zachována."
     ],
     "en": [
-      "Simpler Smart Progression settings and reliable saving of repetition ranges and load increments.",
-      "Working-weight progress, personal records and automatic exercise changes in supersets.",
-      "Same functional changes as iOS Beta 136. Workout history and offline data are preserved."
+      "Restored a separate Physique tab alongside Tools, with all six navigation items available.",
+      "Photographic transformations: gallery, before/after comparisons and slideshow.",
+      "Same features as iOS Beta 138. History and offline data are preserved."
     ],
     "de": [
-      "Einfachere Smart-Progression-Einstellungen und zuverlässiges Speichern von Wiederholungsbereich und Gewichtsschritt.",
-      "Fortschritt der Arbeitsgewichte, persönliche Rekorde und automatischer Übungswechsel in Supersätzen.",
-      "Gleiche Funktionen wie iOS Beta 136. Trainingsverlauf und Offline-Daten bleiben erhalten."
+      "Eigenen Körper-Tab neben den Werkzeugen wiederhergestellt; alle sechs Navigationseinträge bleiben verfügbar.",
+      "Fotografische Veränderungen: Galerie, Vorher/Nachher-Vergleich und Diashow.",
+      "Gleiche Funktionen wie iOS Beta 138. Verlauf und Offline-Daten bleiben erhalten."
     ],
     "sk": [
-      "Jednoduchšie nastavenia Chytrého progresu a oprava ukladania rozsahu opakovaní a kroku záťaže.",
-      "Progres pracovných váh, osobné rekordy a automatické striedanie cvikov v supersériách.",
-      "Rovnaké funkčné zmeny ako iOS Beta 136. História a offline dáta zostávajú zachované."
+      "Obnovená samostatná záložka Postava vedľa Nástrojov. Všetkých šesť položiek navigácie zostáva dostupných.",
+      "Fotografické premeny: galéria, porovnanie PRED/PO a slideshow.",
+      "Rovnaké funkcie ako iOS Beta 138. História a offline dáta zostávajú zachované."
     ],
     "pl": [
-      "Prostsze ustawienia inteligentnej progresji oraz poprawny zapis zakresu powtórzeń i przyrostu ciężaru.",
-      "Postępy ciężarów roboczych, rekordy osobiste i automatyczna zmiana ćwiczeń w superseriach.",
-      "Te same funkcje co w iOS Beta 136. Historia treningów i dane offline zostają zachowane."
+      "Przywrócono osobną kartę Sylwetka obok Narzędzi; wszystkie sześć pozycji nawigacji jest dostępnych.",
+      "Przemiany na zdjęciach: galeria, porównania PRZED/PO i pokaz slajdów.",
+      "Te same funkcje co iOS Beta 138. Historia i dane offline są zachowane."
     ]
   },
   "recommended": true,
