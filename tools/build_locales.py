@@ -238,3 +238,7 @@ for page in [ROOT/'index.html', ROOT/'privacy.html'] + [ROOT/l/name for l in LAN
 # Add the Czech content portal after the established localized landing pages are generated.
 from build_fitness_portal import build as build_fitness_portal
 build_fitness_portal(base, (ROOT/'cs/index.html').read_text(encoding='utf-8'))
+
+# Account disclosures must survive every locale regeneration.
+from account_privacy import update as update_account_privacy
+update_account_privacy(ROOT)
