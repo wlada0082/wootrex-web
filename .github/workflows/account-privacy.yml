@@ -1,0 +1,17 @@
+name: Account privacy checks
+on:
+  pull_request:
+    paths: ['**/privacy.html', 'cs/odstraneni-uctu/**', 'assets/js/account-deletion*.js', 'tools/test/account-deletion*.cjs', '.github/workflows/account-privacy.yml']
+permissions:
+  contents: read
+jobs:
+  request_flow:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tools/test/account-deletion*.test.cjs tools/test/beta-cta.test.cjs tools/test/update-manifest.test.cjs

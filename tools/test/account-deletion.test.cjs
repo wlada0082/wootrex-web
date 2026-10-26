@@ -1,0 +1,5 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+const root=path.join(__dirname,'../..');
+test('deletion page is independent of app installation and has a verified contact path',()=>{const s=fs.readFileSync(path.join(root,'cs/odstraneni-uctu/index.html'),'utf8');assert.ok(s.includes('mailto:wootrex@seznam.cz'));assert.ok(s.includes('lokální historie'));assert.ok(s.includes('nevratné'));assert.ok(!s.includes('cloudflareinsights'));assert.ok(!s.includes('data-feedback'));});
+test('automatic deletion is disabled until configured; no service secret is published',()=>{const s=fs.readFileSync(path.join(root,'assets/js/account-deletion-config.js'),'utf8');assert.ok(s.includes('enabled:false'));assert.ok(!s.includes('service_role'));assert.ok(!s.includes('sb_secret_'));});
+test('each privacy language explains existing Supabase accounts and links deletion',()=>{for(const l of ['cs','en','de','sk','pl']){const s=fs.readFileSync(path.join(root,l,'privacy.html'),'utf8');assert.ok(s.includes('Supabase Auth'));assert.ok(s.includes('/cs/odstraneni-uctu/'));}});
