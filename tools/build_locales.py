@@ -116,6 +116,7 @@ maps['cs']['THE NEXT<br>VERSION IS YOU.']='DALŠÍ VERZE<br>JSI TY.'
 def translate(s,l):
  keys=sorted(maps[l],key=len,reverse=True)
  return re.sub('|'.join(re.escape(k) for k in keys),lambda m:maps[l][m[0]],s)
+delete_titles={'cs':'Smazání účtu WOOTREX','en':'Delete your WOOTREX account','de':'WOOTREX-Konto löschen','sk':'Zmazanie účtu WOOTREX','pl':'Usuń konto WOOTREX'}
 privacy_titles={
  'cs':'Ochrana soukromí','en':'Privacy Policy','de':'Datenschutzerklärung','sk':'Ochrana súkromia','pl':'Polityka prywatności'}
 descs={
@@ -209,7 +210,7 @@ for l in LANGS:
 {seo(l,True)}
 <link rel="icon" type="image/png" href="../assets/images/wootrex-splash-logo.png" sizes="1254x1254"><link rel="stylesheet" href="../assets/css/style.css"><script src="../assets/js/language.js" defer></script><script src="../assets/js/feedback.js" defer></script></head>
 <body><a class="skip" href="#main">{translate('Přejít na obsah',l)}</a><header class="header privacy-header"><a class="brand" href="./"><img src="../assets/images/wootrex-splash-logo.png" width="48" height="48" alt=""><span>WOOTREX</span></a><a class="text-link" href="./">← {labels[l][2]}</a>{selector(l,'../',True)}</header>
-<main class="section privacy" id="main"><p class="eyebrow">WOOTREX / {title.upper()}</p><h1>{title}</h1><p>{labels[l][3]}</p><section lang="{l}">{policy[l]}</section></main>
+<main class="section privacy" id="main"><p class="eyebrow">WOOTREX / {title.upper()}</p><h1>{title}</h1><p>{labels[l][3]}</p><section lang="{l}">{policy[l]}</section><p><a href="delete-account.html">{delete_titles[l]}</a></p></main>
 <footer class="footer"><div><a class="brand" href="./">WOOTREX</a><p class="slogan">YOUR NEXT VERSION</p></div><div class="footer-links"><button type="button" class="button small" data-feedback>{translate("Zpětná vazba",l)}</button><a href="./#kontakt">{translate('Kontakt',l)}</a><span>© 2026 WOOTREX</span></div></footer></body></html>
 '''
  (folder/'privacy.html').write_text(p,encoding='utf-8')

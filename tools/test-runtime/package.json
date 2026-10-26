@@ -1,0 +1,10 @@
+{
+  "name": "wootrex-deletion-web-tests",
+  "private": true,
+  "scripts": {
+    "test": "node --test ../test/account-deletion.test.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "27.0.1"
+  }
+}
