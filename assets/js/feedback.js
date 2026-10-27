@@ -37,7 +37,7 @@ const feedbackLabels = {"cs": ["Zpětná vazba", "Kategorie", "Chyba", "Požadav
    if(response.status===429){status.textContent=t[12];return}
    if(response.status===400){status.textContent=t[13];return}
    if(response.status!==201)throw new Error('delivery');
-   const result=await response.json();if(result.success!==true||typeof result.id!=='string')throw new Error('response');
+   const result=await response.json();if(result.success!==true||typeof result.id!=='string'||!result.id.trim())throw new Error('response');
    if(localDevelopment){form.dataset.feedbackId=result.id;form.dataset.success=String(result.success)}
    form.reset();status.textContent=t[10];
   }catch(_){status.textContent=t[11]}
