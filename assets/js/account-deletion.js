@@ -15,6 +15,7 @@ try {
   config = await response.json();
   if (config.enabled !== true || config.url !== expectedBackend ||
       typeof config.publishableKey !== 'string' || !/^sb_publishable_[A-Za-z0-9_-]+$/.test(config.publishableKey)) throw Error();
+  form.hidden = false;
   fields.disabled = false;
   button.disabled = false;
   report('ready', false);

@@ -240,5 +240,12 @@ from build_fitness_portal import build as build_fitness_portal
 build_fitness_portal(base, (ROOT/'cs/index.html').read_text(encoding='utf-8'))
 
 # Account disclosures must survive every locale regeneration.
+sitemap=ROOT/'sitemap.xml'
+if sitemap.exists():
+ text=sitemap.read_text(encoding='utf-8')
+ for lang in LANGS:
+  url=base+lang+'/delete-account.html'
+  if url not in text: text=text.replace('</urlset>','<url><loc>'+html.escape(url)+'</loc></url>\n</urlset>')
+ sitemap.write_text(text,encoding='utf-8')
 from account_privacy import update as update_account_privacy
 update_account_privacy(ROOT)
