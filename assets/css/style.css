@@ -85,3 +85,5 @@ h2{font-size:38px}
 
 /* Keep localized activity labels inside the narrowest mobile viewport. */
 @media(max-width:360px){.discipline-strip{flex-wrap:wrap}.progress{grid-template-columns:minmax(0,1fr)}.progress-copy,.progress-visual{min-width:0}}
+/* Long localized policy headings must remain readable on narrow phones. */
+.privacy{overflow-wrap:anywhere;hyphens:auto}
