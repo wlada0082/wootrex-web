@@ -25,7 +25,7 @@ const feedbackLabels = {"cs": ["Zpětná vazba", "Kategorie", "Chyba", "Požadav
  form.addEventListener('submit',async event=>{
   event.preventDefault();if(sending)return;
   const message=form.elements.message.value.trim(),email=form.elements.email.value.trim();
-  if([...message].length<5||[...message].length>4000||(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))){status.textContent=t[13];return}
+  if(!['bug','feature_request','suggestion','other'].includes(form.elements.category.value)||email.length>254||[...message].length<5||[...message].length>4000||(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))){status.textContent=t[13];return}
   sending=true;submit.disabled=true;close.disabled=true;submit.textContent=t[9];status.textContent='';
   const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);
   try {
@@ -37,7 +37,15 @@ const feedbackLabels = {"cs": ["Zpětná vazba", "Kategorie", "Chyba", "Požadav
    if(response.status===429){status.textContent=t[12];return}
    if(response.status===400){status.textContent=t[13];return}
    if(response.status!==201)throw new Error('delivery');
-   const result=await response.json();if(result.success!==true||typeof result.id!=='string'||!result.id.trim())throw new Error('response');
+   // Bound the receipt before decoding, including chunked responses with no length.
+   const reader=response.body?.getReader();if(!reader)throw new Error('response');
+   let size=0;const chunks=[];
+   try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.byteLength;
+    if(size>16384){await reader.cancel();throw new Error('response')}
+    chunks.push(value);
+   }}finally{reader.releaseLock()}
+   const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length}
+   const result=JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes));if(result.success!==true||typeof result.id!=='string'||!result.id.trim())throw new Error('response');
    if(localDevelopment){form.dataset.feedbackId=result.id;form.dataset.success=String(result.success)}
    form.reset();status.textContent=t[10];
   }catch(_){status.textContent=t[11]}
