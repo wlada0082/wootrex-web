@@ -3,6 +3,18 @@
   "author": "Redakce WOOTREX",
   "articles": [
     {
+      "slug": "nehledej-zazracny-split",
+      "title": "Nehledej zázračný split",
+      "description": "Vyber si trénink, který ti vyhovuje, dej mu čas a sleduj vlastní posun. O konzistenci, pracovních vahách a změnách, které mají důvod.",
+      "minutes": 4,
+      "label": "Konzistence a vlastní progres",
+      "cover": "Drž se plánu.\nSleduj svůj posun.",
+      "publishedAt": "2026-10-30",
+      "displayDate": "30. října 2026",
+      "editorialLabel": "Autorský článek WOOTREX",
+      "sources": []
+    },
+    {
       "slug": "jak-si-nastavit-trenink",
       "title": "Jak si nastavit trénink a přestat pořád hledat lepší split",
       "description": "Vyber si sestavu, dej jí čas a sleduj, co zvládáš. Prakticky o cvicích, přidávání zátěže a výsledcích, které osobní váha neukáže.",
