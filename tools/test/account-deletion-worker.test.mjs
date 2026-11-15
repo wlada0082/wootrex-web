@@ -10,6 +10,22 @@ test('SQLite outbox is durable, deduplicated and retries delivery', async t => {
   sqlite.exec(readFileSync(new URL('../deletion-worker/0002_account_deletion_requests.sql', import.meta.url), 'utf8'));
   let allowed = true, fail = true;
   const deliveries = [];
+  const attempts = new Map();
+  t.mock.method(globalThis, 'fetch', async (url, options) => {
+    const mail = JSON.parse(options.body);
+    const key = options.headers['Idempotency-Key'];
+    assert.equal(url, 'https://api.resend.com/emails');
+    assert.equal(options.method, 'POST');
+    assert.equal(options.headers.Authorization, 'Bearer mock-token');
+    assert.equal(options.redirect, 'error');
+    assert.equal(key, `wootrex-account-deletion/${mail.subject.split(' - ').at(-1)}`);
+    assert.equal(mail.from, 'WOOTREX <account-requests@notify.wootrex.cz>');
+    assert.deepEqual(mail.to, ['wootrex@seznam.cz']);
+    attempts.set(key, (attempts.get(key) ?? 0) + 1);
+    if (fail) return new Response(null, { status: 429 });
+    deliveries.push(mail);
+    return Response.json({ id: mail.subject });
+  });
   const env = {
     DB: { prepare(sql) {
       const statement = sqlite.prepare(sql);
@@ -19,10 +35,7 @@ test('SQLite outbox is durable, deduplicated and retries delivery', async t => {
       }; } };
     } },
     DELETION_RATE_LIMITER: { limit() { return {success:allowed}; } },
-    DELETION_EMAIL: { send(mail) {
-      if (fail) throw Error('mail unavailable');
-      deliveries.push(mail);
-    } },
+    RESEND_API_KEY: 'mock-token',
   };
   const submit = (data, origin = 'https://wootrex.cz', method = 'POST') => deletionRequest(
     new Request('https://feedback.wootrex.cz/account-deletion-requests', {
@@ -52,7 +65,7 @@ test('SQLite outbox is durable, deduplicated and retries delivery', async t => {
   assert.equal(deliveries.length,0);
   await Promise.all([sendPendingRequests(env,now+900),sendPendingRequests(env,now+900)]);
   assert.equal(deliveries.length,2);
-  assert.ok(deliveries.every(m=>m.to==='wootrex@seznam.cz'));
+  assert.deepEqual([...attempts.values()], [2, 2]);
   assert.ok(deliveries.some(m=>m.text.includes('a@example.test')));
   await sendPendingRequests(env,now+901);
   assert.equal(deliveries.length,2);

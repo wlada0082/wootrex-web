@@ -15,17 +15,16 @@ route = '    const origin=request.headers.get("Origin");'
 entry = 'export default {\n  async fetch(request,env) {'
 if source.count(route) != 1 or source.count(entry) != 1 or 'deletionRequest' in source:
     raise SystemExit('Unexpected Worker source or integration already applied')
-if settings.get('send_email') or settings.get('triggers') or any(
+if settings.get('triggers') or any(
     limit['namespace_id'] == '10043' for limit in settings['ratelimits']
 ):
-    raise SystemExit('Existing email, schedule or namespace requires review')
+    raise SystemExit('Existing schedule or namespace requires review')
 source = ("import { deletionRequest, sendPendingRequests } from './account-deletion.mjs';\n"
           + source.replace(entry, 'export default {\n'
             '  async scheduled(_event, env) { await sendPendingRequests(env); },\n'
             '  async fetch(request,env) {')
           .replace(route, '    if (new URL(request.url).pathname === "/account-deletion-requests") {\n'
                            '      return deletionRequest(request, env);\n    }\n' + route))
-settings['send_email'] = [{'name': 'DELETION_EMAIL', 'destination_address': 'wootrex@seznam.cz'}]
 settings['triggers'] = {'crons': ['*/5 * * * *']}
 settings['ratelimits'].append({'name': 'DELETION_RATE_LIMITER', 'namespace_id': '10043',
                                'simple': {'limit': 5, 'period': 60}})

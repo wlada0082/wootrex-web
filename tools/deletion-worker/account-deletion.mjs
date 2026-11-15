@@ -23,7 +23,7 @@ export async function deletionRequest(request, env) {
   if (request.headers.get('Content-Type')?.split(';')[0].trim().toLowerCase() !== 'application/json') {
     return reply(415, 'invalid_request');
   }
-  if (!env.DB || !env.DELETION_RATE_LIMITER || !env.DELETION_EMAIL) return reply(503, 'unavailable');
+  if (!env.DB || !env.DELETION_RATE_LIMITER || !env.RESEND_API_KEY) return reply(503, 'unavailable');
   try {
     const ip = request.headers.get('CF-Connecting-IP');
     if (!ip) return reply(403, 'origin_not_allowed');
@@ -69,6 +69,10 @@ export async function deletionRequest(request, env) {
 }
 
 export async function sendPendingRequests(env, now = Math.floor(Date.now() / 1000)) {
+  if (!env.RESEND_API_KEY) return;
+
+  if (!env.RESEND_API_KEY) return;
+
   const rows = await env.DB.prepare(`UPDATE account_deletion_requests SET lease=?, next_attempt=?
     WHERE id IN (SELECT id FROM account_deletion_requests WHERE sent_at IS NULL AND next_attempt<=?
     ORDER BY next_attempt LIMIT 10) RETURNING id,email,lease`)
@@ -76,12 +80,25 @@ export async function sendPendingRequests(env, now = Math.floor(Date.now() / 100
 
   for (const { id, email, lease } of rows.results) {
     try {
-      await env.DELETION_EMAIL.send({
-        from: 'account-requests@wootrex.cz',
-        to: recipient,
-        subject: `WOOTREX - zadost o odstraneni uctu - ${id}`,
-        text: `Reference: ${id}\nE-mail uctu: ${email}\nPred jakymkoliv mazanim overte vlastnictvi uctu.\n`,
+      const result = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+          'Idempotency-Key': `wootrex-account-deletion/${id}`,
+        },
+        redirect: 'error',
+        signal: AbortSignal.timeout(5000),
+        body: JSON.stringify({
+          from: 'WOOTREX <account-requests@notify.wootrex.cz>',
+          to: [recipient],
+            subject: `WOOTREX - zadost o odstraneni uctu - ${id}`,
+            text: `Reference: ${id}\nE-mail uctu: ${email}\nPred jakymkoliv mazanim overte vlastnictvi uctu.\n`,
+        }),
       });
+      if (!result.ok) continue;
+      const receipt = await result.json();
+      if (typeof receipt?.id !== 'string' || !receipt.id) continue;
     } catch {
       // The lease expires automatically, allowing a later attempt.
       continue;
