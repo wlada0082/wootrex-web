@@ -1,5 +1,5 @@
 from pathlib import Path
-import json,re
+import html,json,re
 
 
 def feedback_paragraph(text,lang,item):
@@ -39,13 +39,30 @@ def update(root):
   text=text.replace('8. října 2026','27. října 2026').replace('26. října 2026','27. října 2026').replace('8 October 2026','27 October 2026').replace('26 October 2026','27 October 2026')
   text=re.sub(r'(assets/css/style\.css)(?:\?[^"]*)?(?=")',r'\1?v=20261027-policy',text)
   path.write_text(text,encoding='utf-8')
- # The same localized content owns the existing deletion routes, not new pages.
  for lang,item in data.items():
   page=root/lang/'delete-account.html'
-  if not page.exists() or 'manualHtml' not in item: continue
-  text=page.read_text(encoding='utf-8');start=text.index('</h1>')+5;end=text.index('<form id="delete-form"',start)
-  text=text[:start]+item['manualHtml']+text[end:]
-  text=text.replace('<form id="delete-form">','<form id="delete-form" hidden>')
-  text=re.sub(r'(assets/(?:css/(?:style|account-deletion)\.css|js/account-deletion\.js))(?:\?[^"]*)?(?=")',r'\1?v=20261027-policy',text)
-  page.write_text(text,encoding='utf-8')
+  if page.exists(): update_deletion_page(page,item)
+
+def update_deletion_page(page, item):
+ text=page.read_text(encoding='utf-8')
+ title,intro,label,button,sending,success,error,rate,nojs=item['request']
+ encode=html.escape
+ title,intro,label,button,nojs=map(encode,(title,intro,label,button,nojs))
+ form=f'''<section id="deletion-request" aria-labelledby="request-title"><h2 id="request-title">{title}</h2><p>{intro}</p>
+<form id="delete-form" method="post"><label for="email">{label}</label>
+<input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
+<div hidden><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+<button class="button" type="submit" disabled>{button}</button></form>
+<p id="deletion-status" class="deletion-status" role="status" aria-live="polite"></p>
+<noscript><p>{nojs}</p></noscript></section>'''
+ scope=item['requestScope']
+ start=text.index('</h1>')+5
+ end=text.index('</main>',start)
+ text=text[:start]+form+scope+item['requestPolicy']+text[end:]
+ messages=json.dumps(dict(sending=sending,success=success,error=error,rate=rate),ensure_ascii=False).replace('<','\\u003c')
+ text=re.sub(r'(<script type="application/json" id="deletion-messages">).*?(</script>)',lambda m:m[1]+messages+m[2],text,flags=re.S)
+ text=text.replace('https://qsruhiewyxnhxpvnibcc.supabase.co','https://feedback.wootrex.cz')
+ text=re.sub(r'(assets/(?:css/(?:style|account-deletion)\.css|js/account-deletion\.js))(?:\?[^"]*)?(?=")',r'\1?v=20261115-request',text)
+ page.write_text(text,encoding='utf-8')
+
 if __name__=='__main__':update(Path(__file__).resolve().parents[1])

@@ -1,0 +1,14 @@
+# Account deletion request release
+
+GitHub Pages continues serving the existing five public URLs. The pages post an email address to the existing Cloudflare feedback Worker at feedback.wootrex.cz. The Worker records a request in a separate D1 table and returns 202 only after storage succeeds. It never queries Supabase Auth. The response is identical for a new request and a repeat.
+
+## Prepare and validate before publishing
+
+1. Copy the existing WOOTREX feedback Worker project to an isolated working directory. Run `python tools/deletion-worker/integrate.py <worker-copy>` from this repository. It adds one route, the migration, a dedicated rate limiter, and a schedule to the existing Worker. Review the resulting diff. The backend is maintained outside GitHub, so this PR carries the integration source.
+2. Run the existing Worker tests, `node --test tools/test/account-deletion-worker.test.mjs`, the website tests, and a Wrangler dry run with the installed account-compatible version. No current production binding, migration or deployment is modified by the integration command.
+3. Verify notify.wootrex.cz as a sending-only domain on Resend Free. Add only the Resend-supplied authentication and return-path records below notify.wootrex.cz. Keep the Forpsi apex MX (mxavas.forpsi.com, priority 10). Use a sending-only key scoped to the verified domain and set RESEND_API_KEY as a Worker secret. Use a separate key for the isolated smoke Worker. The recipient is fixed in code.
+4. After release approval, deploy the migration and Worker before publishing the pages. Verify a synthetic request against the deployed route and confirm the email in the support inbox. Then publish the site and check the form from the canonical URL on mobile and desktop. Confirm that support can verify account ownership and close requests before using the URL in Play Data Safety.
+
+The schedule runs every five minutes and claims up to ten pending requests per run. Failed sends are retried after the fifteen-minute lease. Keep a watch on the age of unsent requests using aggregate counts only. The queue records mail service acceptance. The inbox test verifies receipt. The same Resend idempotency key is used on retries. If recording acceptance fails and the provider idempotency window expires, delivery can repeat with the same reference. Use that reference to reconcile duplicates. The Worker purges submitted addresses after a day following mail acceptance. Pending requests remain recoverable during delivery outages. Support applies its own documented mailbox retention.
+
+The form does not verify identity or delete accounts. Never delete an account based on the submitted email. Independently verify control of the address already on the account, follow the approved deletion procedure and verify its result before confirming completion.
