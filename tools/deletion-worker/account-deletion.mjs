@@ -45,7 +45,7 @@ export async function deletionRequest(request, env) {
         bytes.set(value, offset);
         offset += value.length;
       }
-      data = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes.subarray(0, offset)));
+      data = JSON.parse(new TextDecoder('utf-8', { fatal: true, ignoreBOM: false }).decode(bytes.subarray(0, offset)));
     } catch {
       return reply(400, 'invalid_request');
     } finally {
@@ -71,8 +71,6 @@ export async function deletionRequest(request, env) {
 export async function sendPendingRequests(env, now = Math.floor(Date.now() / 1000)) {
   if (!env.RESEND_API_KEY) return;
 
-  if (!env.RESEND_API_KEY) return;
-
   const rows = await env.DB.prepare(`UPDATE account_deletion_requests SET lease=?, next_attempt=?
     WHERE id IN (SELECT id FROM account_deletion_requests WHERE sent_at IS NULL AND next_attempt<=?
     ORDER BY next_attempt LIMIT 10) RETURNING id,email,lease`)
@@ -87,13 +85,13 @@ export async function sendPendingRequests(env, now = Math.floor(Date.now() / 100
           'Content-Type': 'application/json',
           'Idempotency-Key': `wootrex-account-deletion/${id}`,
         },
-        redirect: 'error',
+        redirect: 'manual',
         signal: AbortSignal.timeout(5000),
         body: JSON.stringify({
           from: 'WOOTREX <account-requests@notify.wootrex.cz>',
           to: [recipient],
-            subject: `WOOTREX - zadost o odstraneni uctu - ${id}`,
-            text: `Reference: ${id}\nE-mail uctu: ${email}\nPred jakymkoliv mazanim overte vlastnictvi uctu.\n`,
+          subject: `WOOTREX - zadost o odstraneni uctu - ${id}`,
+          text: `Reference: ${id}\nE-mail uctu: ${email}\nPred jakymkoliv mazanim overte vlastnictvi uctu.\n`,
         }),
       });
       if (!result.ok) continue;

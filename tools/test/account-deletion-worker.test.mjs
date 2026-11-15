@@ -17,7 +17,7 @@ test('SQLite outbox is durable, deduplicated and retries delivery', async t => {
     assert.equal(url, 'https://api.resend.com/emails');
     assert.equal(options.method, 'POST');
     assert.equal(options.headers.Authorization, 'Bearer mock-token');
-    assert.equal(options.redirect, 'error');
+    assert.equal(options.redirect, 'manual');
     assert.equal(key, `wootrex-account-deletion/${mail.subject.split(' - ').at(-1)}`);
     assert.equal(mail.from, 'WOOTREX <account-requests@notify.wootrex.cz>');
     assert.deepEqual(mail.to, ['wootrex@seznam.cz']);
