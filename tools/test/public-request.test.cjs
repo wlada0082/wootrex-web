@@ -2,13 +2,13 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const {JSDOM}=require('../test-runtime/node_modules/jsdom');
 const root=path.resolve(__dirname,'../..'),langs=['cs','en','de','sk','pl'];
 for(const lang of langs){
- test(`manual request works without JS or app in ${lang}`,()=>{
+ test(`localized browser form exists in ${lang}`,()=>{
   const dom=new JSDOM(fs.readFileSync(path.join(root,lang,'delete-account.html'),'utf8'));
-  const d=dom.window.document,form=d.querySelector('#delete-form'),link=d.querySelector('#manual-deletion-request');
-  assert.equal(form.hidden,true);assert.equal(form.querySelector('fieldset').disabled,true);
-  assert.equal(new URL(link.href).protocol,'mailto:');assert.equal(new URL(link.href).pathname,'wootrex@seznam.cz');
-  assert.match(new URL(link.href).searchParams.get('subject'),/account.*data.*deletion/);
-  assert.ok(d.querySelector('#deletion-request ol').textContent.length>50);
+  const d=dom.window.document,form=d.querySelector('#delete-form');
+  assert.equal(form.hidden,false);
+  assert.equal(form.querySelector('input[name=email]').required,true);
+  assert.equal(form.querySelectorAll('input[type=password]').length,0);
+  assert.equal(d.querySelectorAll('a[href^="mailto:"]').length,0);
   assert.equal(d.querySelectorAll('script[src]').length,1);
   dom.window.close();
  });

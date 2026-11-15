@@ -29,7 +29,7 @@ class PrivacyTests(unittest.TestCase):
    self.assertEqual(first,{n:(root/n).read_bytes() for n in files})
    for lang in ['cs','en','de','sk','pl']:
     self.assertIn('https://wootrex.cz/'+lang+'/delete-account.html',(root/'sitemap.xml').read_text(encoding='utf-8'))
-    self.assertIn('id="manual-deletion-request"',(root/lang/'delete-account.html').read_text(encoding='utf-8'))
+    self.assertIn('id="delete-form"',(root/lang/'delete-account.html').read_text(encoding='utf-8'))
     policy=(root/lang/'privacy.html').read_text(encoding='utf-8')
     self.assertIn('Supabase Auth',policy)
     self.assertIn('id="feedback-processing-'+lang+'"',policy)
