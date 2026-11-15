@@ -1,0 +1,127 @@
+From 755afc1df2f0ddf460252741329d4dc9ab400ee9 Mon Sep 17 00:00:00 2001
+From: Codex <codex@local>
+Date: Sun, 15 Nov 2026 19:19:42 +0100
+Subject: [PATCH] Add opt-in 90-day feedback cleanup
+
+---
+ feedback-retention.test.mjs            | 54 ++++++++++++++++++++++++++
+ migrations/0003_feedback_retention.sql |  1 +
+ src/feedback-retention.mjs             | 18 +++++++++
+ src/worker.js                          |  6 ++-
+ 4 files changed, 78 insertions(+), 1 deletion(-)
+ create mode 100644 feedback-retention.test.mjs
+ create mode 100644 migrations/0003_feedback_retention.sql
+ create mode 100644 src/feedback-retention.mjs
+
+diff --git a/feedback-retention.test.mjs b/feedback-retention.test.mjs
+new file mode 100644
+index 0000000..1d4b890
+--- /dev/null
++++ b/feedback-retention.test.mjs
+@@ -0,0 +1,54 @@
++import assert from 'node:assert/strict';
++import { readFileSync } from 'node:fs';
++import { DatabaseSync } from 'node:sqlite';
++import test from 'node:test';
++import worker from './src/worker.js';
++
++test('retention is opt-in, bounded, repeatable and preserves the cutoff', async () => {
++  const sql = new DatabaseSync(':memory:');
++  try {
++    for (const file of ['0001_feedback.sql', '0003_feedback_retention.sql']) {
++      sql.exec(readFileSync(new URL('./migrations/' + file, import.meta.url), 'utf8'));
++    }
++    const insert = sql.prepare(
++      "INSERT INTO feedback (id, created_at, category, message, source) VALUES (?, ?, 'bug', 'Synthetic feedback', 'android')"
++    );
++    for (let i = 0; i < 501; i++) insert.run('old-' + i, '2026-01-01T00:00:00.000Z');
++    insert.run('boundary', '2026-01-02T00:00:00.000Z');
++    insert.run('recent', '2026-01-02T00:00:00.001Z');
++
++    const env = {
++      DB: {
++        prepare(query) {
++          return {
++            bind(...params) {
++              return { async run() { sql.prepare(query).run(...params); return { success: true }; } };
++            },
++          };
++        },
++      },
++    };
++    const count = () => sql.prepare('SELECT count(*) AS n FROM feedback').get().n;
++    async function cron() {
++      const pending = [];
++      await worker.scheduled({ scheduledTime: Date.parse('2026-04-02T00:00:00Z') }, env, {
++        waitUntil(promise) { pending.push(promise); },
++      });
++      await Promise.all(pending);
++    }
++
++    await cron();
++    assert.equal(count(), 503);
++    env.FEEDBACK_RETENTION_ENABLED = 'true';
++    await cron();
++    assert.equal(count(), 3);
++    await cron();
++    await cron();
++    assert.deepEqual(
++      sql.prepare('SELECT id FROM feedback ORDER BY id').all().map(row => row.id),
++      ['boundary', 'recent']
++    );
++  } finally {
++    sql.close();
++  }
++});
+diff --git a/migrations/0003_feedback_retention.sql b/migrations/0003_feedback_retention.sql
+new file mode 100644
+index 0000000..22c715f
+--- /dev/null
++++ b/migrations/0003_feedback_retention.sql
+@@ -0,0 +1 @@
++CREATE INDEX IF NOT EXISTS feedback_created_id ON feedback(created_at, id);
+diff --git a/src/feedback-retention.mjs b/src/feedback-retention.mjs
+new file mode 100644
+index 0000000..cb45b6a
+--- /dev/null
++++ b/src/feedback-retention.mjs
+@@ -0,0 +1,18 @@
++const retentionMs = 90 * 24 * 60 * 60 * 1000;
++const batchSize = 500;
++
++export async function purgeExpiredFeedback(env, scheduledTime) {
++  if (env.FEEDBACK_RETENTION_ENABLED !== 'true') return;
++
++  const cutoff = new Date(scheduledTime - retentionMs).toISOString();
++  const result = await env.DB.prepare(
++    `DELETE FROM feedback WHERE id IN (
++       SELECT id FROM feedback
++       WHERE created_at < ?
++       ORDER BY created_at, id
++       LIMIT ?
++     )`
++  ).bind(cutoff, batchSize).run();
++
++  if (result.success === false) throw new Error('Feedback cleanup failed');
++}
+diff --git a/src/worker.js b/src/worker.js
+index 10a9fcc..528c1f0 100644
+--- a/src/worker.js
++++ b/src/worker.js
+@@ -1,3 +1,4 @@
++import { purgeExpiredFeedback } from './feedback-retention.mjs';
+ import { deletionRequest, sendPendingRequests } from './account-deletion.mjs';
+ const ORIGINS = new Set(["https://wootrex.cz", "https://www.wootrex.cz", "http://127.0.0.1:8080", "http://localhost:8080"]);
+ const CATEGORIES = new Set(["bug", "feature_request", "suggestion", "other"]);
+@@ -44,7 +45,10 @@ async function readBody(request) {
+   return JSON.parse(new TextDecoder("utf-8",{fatal:true}).decode(joined));
+ }
+ export default {
+-  async scheduled(_event, env) { await sendPendingRequests(env); },
++  async scheduled(event, env, ctx) {
++    ctx.waitUntil(purgeExpiredFeedback(env, event.scheduledTime));
++    await sendPendingRequests(env);
++  },
+   async fetch(request,env) {
+     if (new URL(request.url).pathname === "/account-deletion-requests") {
+       return deletionRequest(request, env);
