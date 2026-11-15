@@ -1,24 +1,9 @@
-From 755afc1df2f0ddf460252741329d4dc9ab400ee9 Mon Sep 17 00:00:00 2001
-From: Codex <codex@local>
-Date: Sun, 15 Nov 2026 19:19:42 +0100
-Subject: [PATCH] Add opt-in 90-day feedback cleanup
-
----
- feedback-retention.test.mjs            | 54 ++++++++++++++++++++++++++
- migrations/0003_feedback_retention.sql |  1 +
- src/feedback-retention.mjs             | 18 +++++++++
- src/worker.js                          |  6 ++-
- 4 files changed, 78 insertions(+), 1 deletion(-)
- create mode 100644 feedback-retention.test.mjs
- create mode 100644 migrations/0003_feedback_retention.sql
- create mode 100644 src/feedback-retention.mjs
-
 diff --git a/feedback-retention.test.mjs b/feedback-retention.test.mjs
 new file mode 100644
-index 0000000..1d4b890
+index 0000000..0ad4da4
 --- /dev/null
 +++ b/feedback-retention.test.mjs
-@@ -0,0 +1,54 @@
+@@ -0,0 +1,69 @@
 +import assert from 'node:assert/strict';
 +import { readFileSync } from 'node:fs';
 +import { DatabaseSync } from 'node:sqlite';
@@ -28,7 +13,7 @@ index 0000000..1d4b890
 +test('retention is opt-in, bounded, repeatable and preserves the cutoff', async () => {
 +  const sql = new DatabaseSync(':memory:');
 +  try {
-+    for (const file of ['0001_feedback.sql', '0003_feedback_retention.sql']) {
++    for (const file of ['0001_feedback.sql', '0002_account_deletion_requests.sql', '0003_feedback_retention.sql']) {
 +      sql.exec(readFileSync(new URL('./migrations/' + file, import.meta.url), 'utf8'));
 +    }
 +    const insert = sql.prepare(
@@ -38,7 +23,22 @@ index 0000000..1d4b890
 +    insert.run('boundary', '2026-01-02T00:00:00.000Z');
 +    insert.run('recent', '2026-01-02T00:00:00.001Z');
 +
++    for (const id of ['open', 'reopened', 'undated', 'newly-closed']) {
++      insert.run(id, '2025-01-01T00:00:00.000Z');
++    }
++    sql.exec("UPDATE feedback SET status = 'closed'");
++    assert.match(sql.prepare("SELECT closed_at FROM feedback WHERE id = 'newly-closed'").get().closed_at,
++      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
++    sql.exec("UPDATE feedback SET closed_at = created_at WHERE id LIKE 'old-%' OR id IN ('boundary', 'recent')");
++    sql.exec("UPDATE feedback SET status = 'in_progress' WHERE id IN ('open', 'reopened')");
++    assert.equal(sql.prepare("SELECT closed_at FROM feedback WHERE id = 'reopened'").get().closed_at, null);
++    sql.exec("UPDATE feedback SET closed_at = created_at WHERE id = 'open'");
++    sql.exec("UPDATE feedback SET closed_at = NULL WHERE id = 'undated'");
++    sql.exec("UPDATE feedback SET status = 'closed' WHERE id = 'reopened'");
++    assert.match(sql.prepare("SELECT closed_at FROM feedback WHERE id = 'reopened'").get().closed_at, /Z$/);
++
 +    const env = {
++      RESEND_API_KEY: '',
 +      DB: {
 +        prepare(query) {
 +          return {
@@ -59,15 +59,15 @@ index 0000000..1d4b890
 +    }
 +
 +    await cron();
-+    assert.equal(count(), 503);
++    assert.equal(count(), 507);
 +    env.FEEDBACK_RETENTION_ENABLED = 'true';
 +    await cron();
-+    assert.equal(count(), 3);
++    assert.equal(count(), 7);
 +    await cron();
 +    await cron();
 +    assert.deepEqual(
 +      sql.prepare('SELECT id FROM feedback ORDER BY id').all().map(row => row.id),
-+      ['boundary', 'recent']
++      ['boundary', 'newly-closed', 'open', 'recent', 'reopened', 'undated']
 +    );
 +  } finally {
 +    sql.close();
@@ -75,14 +75,28 @@ index 0000000..1d4b890
 +});
 diff --git a/migrations/0003_feedback_retention.sql b/migrations/0003_feedback_retention.sql
 new file mode 100644
-index 0000000..22c715f
+index 0000000..163076b
 --- /dev/null
 +++ b/migrations/0003_feedback_retention.sql
-@@ -0,0 +1 @@
-+CREATE INDEX IF NOT EXISTS feedback_created_id ON feedback(created_at, id);
+@@ -0,0 +1,15 @@
++ALTER TABLE feedback ADD COLUMN closed_at TEXT;
++
++CREATE INDEX feedback_closed_at_id ON feedback(closed_at, id)
++WHERE status = 'closed' AND closed_at IS NOT NULL;
++
++CREATE TRIGGER feedback_record_closure
++AFTER UPDATE OF status ON feedback
++WHEN OLD.status <> NEW.status
++BEGIN
++  UPDATE feedback
++  SET closed_at = CASE WHEN NEW.status = 'closed'
++    THEN strftime('%Y-%m-%dT%H:%M:%fZ', 'now')
++    ELSE NULL END
++  WHERE id = NEW.id;
++END;
 diff --git a/src/feedback-retention.mjs b/src/feedback-retention.mjs
 new file mode 100644
-index 0000000..cb45b6a
+index 0000000..0138c34
 --- /dev/null
 +++ b/src/feedback-retention.mjs
 @@ -0,0 +1,18 @@
@@ -96,8 +110,8 @@ index 0000000..cb45b6a
 +  const result = await env.DB.prepare(
 +    `DELETE FROM feedback WHERE id IN (
 +       SELECT id FROM feedback
-+       WHERE created_at < ?
-+       ORDER BY created_at, id
++       WHERE status = 'closed' AND closed_at IS NOT NULL AND closed_at < ?
++       ORDER BY closed_at, id
 +       LIMIT ?
 +     )`
 +  ).bind(cutoff, batchSize).run();
